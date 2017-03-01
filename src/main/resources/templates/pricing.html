@@ -140,9 +140,9 @@
     <!-- Page Header End-->
 
 	    <section id="contact">
-      <div class="container">
-        <div class="row wow">
-          <div class="col-md-8 col-sm-7 contact-form" style="margin: -1px 0px 250px;">   
+      <div class="container" style="overflow: scroll;">
+        <div class="row wow" >
+          <div class="col-md-8 col-sm-7 contact-form" style="margin: -1px 0px 250px;" >   
             <form role="form"  method="post" action="/registerIdea"
 			th:action="@{/registerIdea}" th:object="${ideaValidator}" enctype="multipart/form-data">  
               <div class="title-header" style="margin-bottom: -6px;">
@@ -174,14 +174,175 @@
                     <div class="help-block with-errors" th:if="${#fields.hasErrors('capEmail')}" th:errors="*{capEmail}"></div>
                   </div>
                 </div>
+                
+                
                 <div class="col-md-12">
-                   <div class="label-line textarea">
+                  <div class="label-line">
                     <span class="span"></span>
-                    <label class="label transition">Your Idea Briefly</label>
-                    <textarea id="message" class="input" name="message" required data-error="Write your message" th:field="*{ideaThesis}" onfocus="inputFocus(this)"></textarea>
-                    <div class="help-block with-errors" th:if="${#fields.hasErrors('ideaThesis')}" th:errors="*{ideaThesis}"></div>
+                    <label class="label transition">SBU</label>
+                    <input type="text" class="input" id="sbu" name="sbu" required data-error="Please enter SBU" th:field="*{servicebu}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('servicebu')}" th:errors="*{servicebu}"></div>
                   </div>
                 </div>
+                
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Project</label>
+                    <input type="text" class="input" id="project" name="project" required data-error="Please enter project" th:field="*{projectName}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('projectName')}" th:errors="*{projectName}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Contact Number</label>
+                    <input type="text" class="input" id="contact" name="contact" required data-error="Please enter your contact number" th:field="*{contactNum}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('contactNum')}" th:errors="*{contactNum}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Location</label>
+                    <input type="text" class="input" id="location" name="location" required data-error="Please enter your location" th:field="*{locationName}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('locationName')}" th:errors="*{locationName}"></div>
+                  </div>
+                </div>
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="">Problem/Pain Area</label>
+                    <textarea  id="problem" name="problem" class="form-control" cols="70" rows="5" required data-error="Please enter Problem or Pain area" th:field="*{problemArea}" onfocus="inputFocus(this)">
+                    </textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('problemArea')}" th:errors="*{problemArea}"></div>
+                  </div>
+                  </br></br></br></br></br></br></br>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="">Vertical/Industry (Ctrl+Click to select multiple)</label>
+                    <!-- <input type="text" class="input" id="vertical" name="vertical" required data-error="Please enter Vertical or Industry" th:field="*{vertIndus}" onfocus="inputFocus(this)"> -->
+                    <select class="form-control" id="vertical" name="vertical" multiple required data-error="Please enter Vertical or Industry" th:field="*{vertIndus}" onfocus="inputFocus(this)">
+                    <OPTION VALUE="BANKING">BANKING</OPTION>
+                    <OPTION VALUE="INSURANCE">INSURANCE</OPTION>
+                    <OPTION VALUE="HEALTHCARE">HEALTHCARE</OPTION>
+                    <OPTION VALUE="TELECOM">TELECOM</OPTION>
+                    <OPTION VALUE="EDUCATION">EDUCATION</OPTION>
+                    <OPTION VALUE="MANUFACTURING">MANUFACTURING</OPTION>
+                    <OPTION VALUE="TECHNOLOGY">TECHNOLOGY</OPTION>
+                    <OPTION VALUE="MEDIA">MEDIA</OPTION>
+                    <OPTION VALUE="FOOD AND BEVERAGE">FOOD AND BEVERAGE</OPTION>
+                    <OPTION VALUE="ELECTRONICS">ELECTRONICS</OPTION>
+                    <OPTION VALUE="FINANCIAL">FINANCIAL</OPTION>
+                    <OPTION VALUE="LEGAL">LEGAL</OPTION>
+                    <OPTION VALUE="AUTOMOTIVE">AUTOMOTIVE</OPTION>
+                    <OPTION VALUE="GOVERNMENT">GOVERNMENT</OPTION>
+                    <OPTION VALUE="ENGINEERING">ENGINEERING</OPTION>
+                    <OPTION VALUE="CONSUMER">CONSUMER</OPTION>
+                    <OPTION VALUE="MARKETING">MARKETING</OPTION>
+                    </select>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('vertIndus')}" th:errors="*{vertIndus}"></div>
+                  </div>
+                    </br> </br></br>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                 
+                    <span class="span"></span>
+                    <label class="label transition">Other Vertical/Industry (sep by ';' if multiple)</label>
+                    <input type="text" class="input" id="othvertical" name="othvertical" required data-error="Please enter Vertical or Industry" th:field="*{oVertical}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('oVertical')}" th:errors="*{oVertical}"></div>
+                  </div>
+                </div>
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="">Function/Process Area (Ctrl+Click to select multiple)</label>
+                   <!--  <textarea  id="funcarea" name="funcarea" class="form-control"  cols="70" rows="5" required data-error="Please enter Function area" th:field="*{farea}" onfocus="inputFocus(this)">
+                    </textarea> -->
+                    
+                     <select multiple class="form-control" id="funcarea" name="funcarea" required data-error="Please enter Problem or Pain area" th:field="*{farea}" onfocus="inputFocus(this)">
+                    <option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
+                    <option value="MARKETING">MARKETING</option>
+                    <option value="PROMOTION">PROMOTION</option>
+                    <option value="PRODUCTION">PRODUCTION</option>
+                    <option value="SALES">SALES</option>
+                    <option value="CUSTOMER SERVICE SUPPORT">CUSTOMER SERVICE SUPPORT</option>
+                    <option value="ACCOUNTING AND FINANCE">ACCOUNTING AND FINANCE</option>
+                    <option value="DISTRIBUTION">DISTRIBUTION</option>
+                    <option value="RESEARCH AND DEVELOPMENT">RESEARCH AND DEVELOPMENT</option>
+                    <option value="ADMINISTRATIVE AND MANAGEMENT">ADMINISTRATIVE AND MANAGEMENT</option>
+                    <option value="OPERATIONS">OPERATIONS</option>
+                    <option value="INFORMATION TECHNOLOGY SUPPORT">INFORMATION TECHNOLOGY SUPPORT</option>
+                    <option value="PURCHASING">PURCHASING</option>
+                    <option value="LEGAL DEPARTMENT">LEGAL DEPARTMENT</option>
+                    </select>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('farea')}" th:errors="*{farea}"></div>
+                  </div>
+                    </br> </br></br>
+                </div>
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    
+                    <label class="label transition">Other Function/Process Area (sep by ';' if multiple)</label>
+                    <input type="text" class="input" id="othfarea" name="othfarea" required data-error="Please enter Other Function/Process Area" th:field="*{ofrea}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('ofrea')}" th:errors="*{ofrea}"></div>
+                  </div>
+                </div>
+                
+                  <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Solution Title</label>
+                    <input type="text" class="input" id="soltitle" name="soltitle" required data-error="Please enter tittle of the Solution" th:field="*{solTit}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('solTit')}" th:errors="*{solTit}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="">Solution Description</label>
+                    <textarea  id="soldesc" name="soldesc" cols="70" rows="5" class="form-control" required data-error="Please enter description for your solution" th:field="*{sDesc}" onfocus="inputFocus(this)">
+                    </textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('sDesc')}" th:errors="*{sDesc}"></div>
+                  </div>
+                   </br></br></br></br></br></br></br>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Technologies ( sep by ';' )</label>
+                    <input type="text" class="input" id="techs" name="techs" required data-error="Please enter techs (sep by ';')" th:field="*{technol}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('technol')}" th:errors="*{technol}"></div>
+                  </div>
+                </div>
+                
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="">Business Benifits/Value</label>
+                    <textarea  id="busbenifits" name="busbenifits" class="form-control" cols="70" rows="5" required data-error="Please explain the business benifits" th:field="*{bubenift}" onfocus="inputFocus(this)">
+                    </textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('bubenift')}" th:errors="*{bubenift}"></div>
+                  </div>
+                  </br></br></br></br></br></br></br>
+                </div>
+                
+                
                 <div class="col-md-6">
                 <div class="label-line">
                     <span class="span"></span>
