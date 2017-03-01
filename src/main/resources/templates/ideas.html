@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+	<meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>Capgemini Hackathon Hub</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" >    
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/responsive.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/font-awesome.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/simple-line-icons.css"> 
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/slicknav.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/nivo-lightbox.css" > 
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/owl.carousel.css">   
+	<link rel="stylesheet" href="./assets/css/jquery.rateyo.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Roof area Starts -->
+      <div id="roof" class="hidden-xs">
+          <div class="container">
+            <div class="col-md-6 col-sm-6">
+              <div class="info-bar-address">
+                 <i class="icon-location-pin"></i> Hyderabad, TS, INDIA
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <!-- Quick Contacts Starts -->
+              <div class="quick-contacts">
+                  <span><i class="icon-phone"></i> (00) 123 456 789</span>
+                  <span><i class="icon-envelope"></i><a href="#"><span class="__cf_email__" data-cfemail="61040c00080d21060c00080d4f020e0c">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a></span>
+              </div>
+              <!-- Quick Contacts End -->
+            </div>
+          </div>
+      </div>
+      <!-- Roof area End -->
+
+      <!-- Nav Menu Section Start -->
+      <div class="navigation-menu">
+        <nav class="navbar navbar-default navbar-event" role="navigation" data-spy="affix" data-offset-top="20">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-md-2">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index"><img src="./assets/img/capgemini_logo.png" alt="" style="padding-top: 5px;
+    width: 270px;"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li><a href="pricing">Pricing Table</a></li>
+                    <li><a href="sponsors">Sponsors</a></li>
+                    <li><a href="single-post">Single Post</a></li>
+                  </ul>
+                </li>                
+                <li><a href="schedule">Schedule</a></li>              
+                <li><a href="speakers">Speakers</a></li>                
+                <li class="active"><a href="ideaList">Ideas</a></li>             
+                <li class="animated bounceIn"><a href="pricing">SUBMIT IDEA</a></li>                
+                <li><a href="contact">Contact</a></li>                
+              </ul>
+            </div><!-- /navbar-collapse -->
+          </div><!-- /container -->
+
+          <!-- Mobile Menu Start -->
+          <ul class="wpb-mobile-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="#">Pages</a>
+               <ul class="dropdown">
+                <li><a href="about">About Us</a></li>
+                <li><a href="gallery">Gallery</a></li>
+                <li><a href="pricing">Pricing Table</a></li>
+                <li><a href="sponsors">Sponsors</a></li>
+                <li><a href="single-post">Single Post</a></li>
+              </ul>
+            </li>                
+            <li><a href="schedule">Schedule</a></li>              
+            <li><a href="speakers">Speakers</a></li>                
+            <li class="active"><a href="blog">Blog</a></li>             
+            <li><a href="pricing">SUBMIT IDEA</a></li>                
+            <li><a href="contact">Contact</a></li> 
+           </ul>
+          <!-- Mobile Menu End -->
+
+        </nav>
+      </div>
+      <!-- Nav Menu Section End -->
+
+    </header>
+    <!-- Header Area wrapper End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header">      
+      <div class="container"> 
+        <div class="page-header-inner">         
+          <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+            <li><a href="index">Home</a></li>
+            <li class="page">Ideas</li>
+          </ol>
+          <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+            ideas
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End-->
+
+    <!-- Blog Section Start -->
+    <section id="content" class="section">
+		<div class="container" >
+        <div class="row">
+          <!-- Start Blog Posts -->
+          <div class="col-md-8">
+            <!-- Start Post -->
+            <div id="postdiv">
+                        <!-- End Post -->  
+			</div>
+            <!-- Start Pagination -->
+        	<div>
+			    <nav aria-label="Page navigation">
+			        <ul class="pagination" id="paginationId"></ul>
+			    </nav>
+			</div>
+            <!-- End Pagination -->
+          </div>
+          <!-- End Blog Posts -->
+		
+          
+
+
+          <!--Sidebar-->
+          <aside id="sidebar" class="col-md-4 right-sidebar">
+            <!-- Search Widget -->
+            <div class="widget widget-search">
+              <form action="#">
+                <input class="form-control" type="search" placeholder="Start Searching..." />
+                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>            
+
+            <!-- Popular Posts widget -->
+            <div class="widget widget-popular-posts">
+            <h5 class="widget-title">Top Hackathons</h5>
+              <ul class="posts-list">
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p1.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon1</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Banking</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p2.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon2</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Insurance</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p3.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon3</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Payments</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p4.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon4</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>TGIW</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p5.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon5</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Campus</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p1.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon6</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Banking</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p2.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon7</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Insurance</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p3.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon8</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Payments</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p4.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon9</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>TGIW</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+                <li>
+                  <div class="widget-thumb">
+                    <a href="#"><img src="./assets/img/blog/p5.jpg" alt="" /></a>
+                  </div>
+                  <div class="widget-content">
+                    <a href="#">Hackathon10</a>
+                    <span><i class="icon-calendar"></i>2016/10/28</span>
+                    <span><i class="icon-folder"></i>Campus</span>
+                  </div>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="widget widget-categories">
+              <h5 class="widget-title">Categories</h5>
+              <ul class="cat-list">
+                <li>
+                  <a href="#">Life Style</a>
+                  <span class="num-posts">09</span>
+                </li>
+                <li>
+                  <a href="#">Blog</a>
+                  <span class="num-posts">15</span>
+                </li>
+                <li>
+                  <a href="#">Fasion</a>
+                  <span class="num-posts">21</span>
+                </li>
+                <li>
+                  <a href="#">Sports</a>
+                  <span class="num-posts">05</span>
+                </li>
+                <li>
+                  <a href="#">Finance</a>
+                  <span class="num-posts">29</span>
+                </li>
+                <li>
+                  <a href="#">Political</a>
+                  <span class="num-posts">17</span>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          <!--End sidebar-->
+        </div>
+      </div>
+    </section>
+    <!-- Blog Section End -->
+
+    <!-- Footer Section Start -->   
+    <footer class="section">  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+           <h3><img src="./assets/img/cap-logo-footer.jpg" alt="" style="width: 200px;"></h3>
+            <p>
+              If you think you have the passion, 
+              attitude and capability to join us 
+              the next big software company
+              s so that we can get the convers.
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Contact Us</a></li>               
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Learn More</h3>
+            <ul>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="ideaList">Ideas</a></li>
+              <li><a href="#">Log In</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Quick Link</h3>
+            <ul>
+              <li><a href="#">Schedule</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>          
+        </div>
+      </div>      
+    </footer>  
+    <!-- Footer Section End -->  
+
+    <!-- Copytight Start -->
+    <section id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="copyright-text text-center">
+             ©Designed and Developed by 
+              <a href="http://graygrids.com/">
+                Hackathon Team
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <!-- Copytight End -->   
+
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="icon-arrow-up"></i>
+    </a>
+
+    <div class="bottom"> <a href="#" class="settings"></a> </div>
+
+    <!-- jQuery Load -->    
+    <script src="./assets/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.min.js"></script> 
+    <!-- Countdown Js -->
+    <script src="./assets/js/jquery.countdown.min.js"></script>
+    <!-- Smooth scroll JS -->   
+    <script src="./assets/js/smooth-scroll.js"></script>        
+    <!-- Wow Scroll -->
+    <script src="./assets/js/wow.js"></script>
+    <!-- Owl carousel -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <!-- Slicknav js -->
+    <script src="./assets/js/jquery.slicknav.js"></script>
+    <!--  Nivo lightbox Js -->
+    <script src="./assets/js/nivo-lightbox.js"></script>   
+    <!-- Contact Form Scripts -->
+    <script src="./assets/js/form-validator.min.js"></script>  
+    <script src="./assets/js/contact-form-script.js"></script>    
+    <!--  Color Switcher js -->
+    <!-- <script src="./assets/js/color-switcher.js"></script>  -->
+    <!-- All Js plugin -->
+    <script src="./assets/js/main.js"></script> 
+    <!-- Map JS -->
+    <script type="text/javascript" src="./assets/js/jquery.mapit.min.js"></script>
+    <script src="./assets/js/initializers.js"></script>
+    <script src="./assets/js/jquery.twbsPagination.min.js"></script>
+    <script src="./js/moment.js"></script>
+	<script src="./assets/js/jquery.rateyo.min.js"></script>
+	<script type="text/javascript">
+	var $pagination = $('#paginationId');
+    var defaultOpts = {
+        totalPages: 20
+    };
+    $pagination.twbsPagination(defaultOpts);
+    $.ajax({url: "/ideaPages?page=1&size=5",
+        	success: function (data) {
+        	//alert(JSON.stringify(data.totalElements));
+            var totalPages = data.totalPages;
+            var currentPage = $pagination.twbsPagination('getCurrentPage');
+            $pagination.twbsPagination('destroy');
+            $pagination.twbsPagination($.extend({}, defaultOpts, {
+                startPage: currentPage,
+                totalPages: totalPages,
+                onPageClick: function (event, page) {
+                	$("html, body").animate({ scrollTop: 0 }, "slow");
+                	var pagenum = Number(page)-1;
+                	$.ajax({url: "/ideaPages?page="+pagenum+"&size=5",
+                    	success: function (data) {
+                    		$("#postdiv").html("");
+                    		$.each(data.content, function (index, value) {
+                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.ideaThonName+'</a></h3><div class="meta"><span class="meta-part"><a href="#"><i class="icon-user"></i>' +value.profile.capId+'</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.ideaThonName+'</a></span></div><p>'+value.ideaThesis+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B"><option value="hello">Approve</option><option value="assign">Assign</option><option value="review">Review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-6"><input type="button" class="btn btn-default form-control" value="Check" onclick="rateIdea(\''+value.profile.capId+'\')"></div></div></div></div></div>');
+                        		$("#"+value.profile.capId+"S").rateYo({
+                      	          rating: value.rating,
+                      	          numStars: 5,
+                      	          precision: 2,
+                      	          minValue: 1,
+                      	          maxValue: 5,
+                                  onInit: function () {
+                                	  $("#"+value.profile.capId+"R").val(value.rating);
+                                	  if(value.status != "NA" || value.status != ""){
+                                		  $("#"+value.profile.capId+"B").val(value.status);
+                                	  }
+                                }
+                      	        }).on("rateyo.change", function (e, data) {
+                      	        	$("#"+value.profile.capId+"R").val(data.rating);
+                      	     });
+                    		});
+                    	}
+                	});
+                }
+            }));
+        }
+    });
+    function rateIdea(id){
+    	var token = $('#_csrf').attr('content');
+    	var header = $('#_csrf_header').attr('content');
+    	var data = {}
+    	data["capId"] = id;
+    	data["rating"] = $("#"+id+"R").val();
+    	data["status"] = $("#"+id+"B").val();
+    	
+/*     	$.post("/rateIdea", {
+    		capId : id,
+        	rating : $("#"+id+"R").val(),
+        	status : $("#"+id+"B").val()
+		}, function(data) {
+
+			var json = JSON.parse(data);
+			//...
+
+		}).done(function() {
+		}).fail(function(xhr, textStatus, errorThrown) {
+		}).complete(function() {
+			$("#btn-save").prop("disabled", false);
+
+		}); */
+    	
+    	$.ajax({
+            type: "POST",
+            url: "/rateIdea",
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            data: {
+            	capId : id,
+            	rating : $("#"+id+"R").val(),
+            	status : $("#"+id+"B").val()
+            },
+            timeout: 600000,
+            success: function (data, textStatus, xhr) {
+            	if(xhr.status == 200){
+            		alert("Review Successful");	
+            	}
+            },
+            error: function (e, textStatus, xhr) {
+            	alert(xhr.status);
+            }
+		});
+    }
+	</script>
+  </body>
+</html>
