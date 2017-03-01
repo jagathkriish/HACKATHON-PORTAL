@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.vv.model.ExpenseFeedForm;
 import com.vv.model.IdeaValidator;
 import com.vv.service.EmailService;
 
@@ -18,13 +17,7 @@ import com.vv.service.EmailService;
 public class AppController {
 	@Autowired
 	private EmailService emailService;
-	@GetMapping("/register")
-    public String showExpenseEntryForm(ExpenseFeedForm expenseFeedForm) {
-		String baseTemplateName = "EnterExpenses";
-		//String baseTemplateName = "index";
-        return baseTemplateName;
-    }
-	
+
 	@GetMapping("/")
     public String Main() throws MessagingException {
 		//String baseTemplateName = "EnterExpenses";

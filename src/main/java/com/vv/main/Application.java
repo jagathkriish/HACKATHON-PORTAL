@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import com.vv.config.AppProperties;
-import com.vv.repositories.ExpenseRepository;
-
 
 @SpringBootApplication
 @ComponentScan(basePackages={"com.vv.config","com.vv.model","com.vv.main","com.vv.controller","com.vv.exception","com.vv.service","com.vv.validator"})
@@ -28,18 +26,14 @@ public class Application {
 	//@Autowired
 	private AppProperties properties;
 
-	private ExpenseRepository exp_repository;
-	//private CustomerRepository cus_repository;
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 	
-	public Application(AppProperties properties,ExpenseRepository exp_repository) {
+	public Application(AppProperties properties) {
 		//this.repository = repository;
 		this.properties = properties;
-		this.exp_repository = exp_repository;
 	}
 	
 	@Bean
@@ -50,12 +44,12 @@ public class Application {
 		};
 	}
 	
-	@Bean
+	/*@Bean
 	public CommandLineRunner expenses(){
 		return (args)->{
 			this.exp_repository.findAll();
 		};
-	}
+	}*/
 	
 	@Bean
 	public HealthIndicator springOneHealthIndicator(){

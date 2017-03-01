@@ -28,7 +28,7 @@ import com.vv.validator.IdeaFileValidator;
 
 @Controller
 public class IdeaContoller {
-	private final Logger log = LoggerFactory.getLogger(ExpenseController.class);
+	private final Logger log = LoggerFactory.getLogger(IdeaContoller.class);
 	private StorageService storageService;
 	private IdeaRepository ideaRepository;
 	private ProfileRepository profileRepository;
