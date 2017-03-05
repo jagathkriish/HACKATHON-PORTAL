@@ -21,8 +21,17 @@ public class Idea implements Serializable{
 	private long id;
 	@ManyToOne(cascade = {CascadeType.ALL})
 	private Profile profile;
+	@Column(length=1000)
+	private String problem;
+	private String industry;
+	private String areaOfFunc;
+	private String technology;
+	@Column(length=100)
+	private String solnTitle;
 	@Column(length=10000)
-	private String ideaThesis;
+	private String solnDesc;
+	@Column(length=1000)
+	private String buBenefit;
 	private String documentName;
 	private String videoName;
 	private String status;
@@ -33,10 +42,18 @@ public class Idea implements Serializable{
 	
 	protected Idea() {}
 
-	public Idea(Profile profile, String ideaThesis, String documentName, String videoName, String status, int rating) {
+	public Idea(Profile profile, String problem, String industry, String areaOfFunc, String technology,
+			String solnTitle, String solnDesc, String buBenefit, String documentName, String videoName, String status,
+			float rating) {
 		super();
 		this.profile = profile;
-		this.ideaThesis = ideaThesis;
+		this.problem = problem;
+		this.industry = industry;
+		this.areaOfFunc = areaOfFunc;
+		this.technology = technology;
+		this.solnTitle = solnTitle;
+		this.solnDesc = solnDesc;
+		this.buBenefit = buBenefit;
 		this.documentName = documentName;
 		this.videoName = videoName;
 		this.status = status;
@@ -59,12 +76,60 @@ public class Idea implements Serializable{
 		this.profile = profile;
 	}
 
-	public String getIdeaThesis() {
-		return ideaThesis;
+	public String getProblem() {
+		return problem;
 	}
 
-	public void setIdeaThesis(String ideaThesis) {
-		this.ideaThesis = ideaThesis;
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+
+	public String getIndustry() {
+		return industry;
+	}
+
+	public void setIndustry(String industry) {
+		this.industry = industry;
+	}
+
+	public String getAreaOfFunc() {
+		return areaOfFunc;
+	}
+
+	public void setAreaOfFunc(String areaOfFunc) {
+		this.areaOfFunc = areaOfFunc;
+	}
+
+	public String getTechnology() {
+		return technology;
+	}
+
+	public void setTechnology(String technology) {
+		this.technology = technology;
+	}
+
+	public String getSolnTitle() {
+		return solnTitle;
+	}
+
+	public void setSolnTitle(String solnTitle) {
+		this.solnTitle = solnTitle;
+	}
+
+	public String getSolnDesc() {
+		return solnDesc;
+	}
+
+	public void setSolnDesc(String solnDesc) {
+		this.solnDesc = solnDesc;
+	}
+
+	public String getBuBenefit() {
+		return buBenefit;
+	}
+
+	public void setBuBenefit(String buBenefit) {
+		this.buBenefit = buBenefit;
 	}
 
 	public String getDocumentName() {
@@ -109,9 +174,11 @@ public class Idea implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Idea [id=" + id + ", profile=" + profile + ", ideaThesis=" + ideaThesis + ", documentName="
-				+ documentName + ", videoName=" + videoName + ", status=" + status + ", rating=" + rating
-				+ ", createdAt=" + createdAt + "]";
+		return "Idea [id=" + id + ", profile=" + profile + ", problem=" + problem + ", industry=" + industry
+				+ ", areaOfFunc=" + areaOfFunc + ", technology=" + technology + ", solnTitle=" + solnTitle
+				+ ", solnDesc=" + solnDesc + ", buBenefit=" + buBenefit + ", documentName=" + documentName
+				+ ", videoName=" + videoName + ", status=" + status + ", rating=" + rating + ", createdAt=" + createdAt
+				+ "]";
 	}
 	
 }

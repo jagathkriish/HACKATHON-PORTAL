@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Capgemini Hackathon Hub</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css" >    
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/responsive.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/font-awesome.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/simple-line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/slicknav.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/nivo-lightbox.css" > 
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/owl.carousel.css">  
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Roof area Starts -->
+      <div id="roof" class="hidden-xs">
+          <div class="container">
+            <div class="col-md-6 col-sm-6">
+              <div class="info-bar-address">
+                 <i class="icon-location-pin"></i> Hyderabad, TS, INDIA
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <!-- Quick Contacts Starts -->
+              <div class="quick-contacts">
+                  <span><i class="icon-phone"></i> (00) 123 456 789</span>
+                  <span><i class="icon-envelope"></i><a href="#"><span class="__cf_email__" data-cfemail="13767e727a7f53747e727a7f3d707c7e">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a></span>
+              </div>
+              <!-- Quick Contacts End -->
+            </div>
+          </div>
+      </div>
+      <!-- Roof area End -->
+
+      <!-- Nav Menu Section Start -->
+      <div class="navigation-menu">
+        <nav class="navbar navbar-default navbar-event" role="navigation" data-spy="affix" data-offset-top="20">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header col-md-2">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index"><img src="./assets/img/capgemini_logo.png" alt="" style="padding-top: 5px;
+    width: 270px;"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pages <span class="caret"></span></a>
+                   <ul class="dropdown-menu">
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="gallery">Gallery</a></li>
+                    <li class="active"><a href="submitIdea">Submit Idea</a></li>
+                    <li><a href="sponsors">Sponsors</a></li>
+                    <li><a href="single-post">Single Post</a></li>
+                  </ul>
+                </li>                
+                <li><a href="schedule">Schedule</a></li>              
+                <li><a href="speakers">Speakers</a></li>                
+                <li><a href="ideaList">Ideas</a></li>             
+                <li class="active animated bounceIn"><a href="submitIdea">Submit Idea</a></li>                
+                <li><a href="contact">Contact</a></li>                
+              </ul>
+            </div><!-- /navbar-collapse -->
+          </div><!-- /container -->
+
+          <!-- Mobile Menu Start -->
+          <ul class="wpb-mobile-menu">
+            <li><a href="index">Home</a></li>
+            <li><a href="#">Pages</a>
+               <ul class="dropdown">
+                <li><a href="about">About Us</a></li>
+                <li><a href="gallery">Gallery</a></li>
+                <li class="active"><a href="submitIdea">Submit Idea</a></li>
+                <li><a href="sponsors">Sponsors</a></li>
+                <li><a href="single-post">Single Post</a></li>
+              </ul>
+            </li>                
+            <li><a href="schedule">Schedule</a></li>              
+            <li><a href="speakers">Speakers</a></li>                
+            <li ><a href="blog">Blog</a></li>             
+            <li class="active"><a href="submitIdea">Submit Idea</a></li>                
+            <li><a href="contact">Contact</a></li> 
+           </ul>
+          <!-- Mobile Menu End -->
+
+        </nav>
+      </div>
+      <!-- Nav Menu Section End -->
+
+    </header>
+    <!-- Header Area wrapper End -->
+
+    <!-- Page Header Start -->
+    <div class="page-header">      
+      <div class="container"> 
+        <div class="page-header-inner">         
+          <ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
+            <li><a href="index">Home</a></li>
+            <li class="page">Submit Idea</li>
+          </ol>
+          <h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
+            We are Listening ..
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End-->
+
+	    <section id="contact">
+      <div class="container">
+        <div class="row wow" >
+          <div class="col-md-8 col-sm-7 contact-form" style="margin: -1px 0px 250px;" >   
+            <form role="form"  method="post" action="/registerIdea"
+			th:action="@{/registerIdea}" th:object="${ideaValidator}" enctype="multipart/form-data">  
+              <div class="title-header" style="margin-bottom: -6px;">
+                <h3 class="title-medium pull-left">Tell us your Idea</h3>
+                <div class="icon pull-right"><i class="fa fa-lightbulb-o fa-5x" style="font-size: 88px;"></i></div>
+              </div>
+              <div class="row">                    
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Name</label>
+                    <input type="text" class="input" id="thonname" name="name" required data-error="Please enter your name" th:field="*{name}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Employee Id</label>
+                    <input type="text" class="input" id="eid" name="eid" required data-error="Please enter your Employee id" th:field="*{capId}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('capId')}" th:errors="*{capId}"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Email</label>
+                    <input type="email" class="input" id="email" name="email" required data-error="Please enter your email" th:field="*{capEmail}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('capEmail')}" th:errors="*{capEmail}"></div>
+                  </div>
+                </div>
+                
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">SBU</label>
+                    <input type="text" class="input" id="sbu" name="sbu" required data-error="Please enter SBU" th:field="*{servicebu}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('servicebu')}" th:errors="*{servicebu}"></div>
+                  </div>
+                </div>
+                
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Project</label>
+                    <input type="text" class="input" id="project" name="project" required data-error="Please enter project" th:field="*{projectName}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('projectName')}" th:errors="*{projectName}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Contact Number</label>
+                    <input type="text" class="input" id="contact" name="contact" required data-error="Please enter your contact number" th:field="*{contactNum}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('contactNum')}" th:errors="*{contactNum}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Location</label>
+                    <input type="text" class="input" id="location" name="location" required data-error="Please enter your location" th:field="*{locationName}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('locationName')}" th:errors="*{locationName}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                   <div class="label-line textarea">
+                    <span class="span"></span>
+                    <label class="label transition">Problem/Pain Area</label>
+                    <textarea id="problem" name="problem" class="input" required data-error="Write your problem" th:field="*{problemArea}" onfocus="inputFocus(this)"></textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('problemArea')}" th:errors="*{problemArea}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line select">
+                    <span class="span"></span>
+                    <label class="">Vertical/Industry (Ctrl+Click to select multiple)</label>
+                    <select class="form-control" id="industry" name="industry" multiple required data-error="Please enter Vertical or Industry" th:field="*{industry}" onfocus="inputFocus(this)">
+                    <OPTION VALUE="BANKING">BANKING</OPTION>
+                    <OPTION VALUE="INSURANCE">INSURANCE</OPTION>
+                    <OPTION VALUE="HEALTHCARE">HEALTHCARE</OPTION>
+                    <OPTION VALUE="TELECOM">TELECOM</OPTION>
+                    <OPTION VALUE="EDUCATION">EDUCATION</OPTION>
+                    <OPTION VALUE="MANUFACTURING">MANUFACTURING</OPTION>
+                    <OPTION VALUE="TECHNOLOGY">TECHNOLOGY</OPTION>
+                    <OPTION VALUE="MEDIA">MEDIA</OPTION>
+                    <OPTION VALUE="FOOD AND BEVERAGE">FOOD AND BEVERAGE</OPTION>
+                    <OPTION VALUE="ELECTRONICS">ELECTRONICS</OPTION>
+                    <OPTION VALUE="FINANCIAL">FINANCIAL</OPTION>
+                    <OPTION VALUE="LEGAL">LEGAL</OPTION>
+                    <OPTION VALUE="AUTOMOTIVE">AUTOMOTIVE</OPTION>
+                    <OPTION VALUE="GOVERNMENT">GOVERNMENT</OPTION>
+                    <OPTION VALUE="ENGINEERING">ENGINEERING</OPTION>
+                    <OPTION VALUE="CONSUMER">CONSUMER</OPTION>
+                    <OPTION VALUE="MARKETING">MARKETING</OPTION>
+                    </select>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('industry')}" th:errors="*{industry}"></div>
+                  </div>
+                    </br> </br></br>
+                </div>
+                
+                <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Other Vertical/Industry (sep by ';' if multiple)</label>
+                    <input type="text" class="input" id="othvertical" name="othvertical" required data-error="Please enter Vertical or Industry" th:field="*{oIndustry}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('oIndustry')}" th:errors="*{oIndustry}"></div>
+                  </div>
+                </div>
+                
+                 <div class="col-md-12">
+                  <div class="label-line dropdown multiple">
+                    <span class="span"></span>
+                    <label class="">Function/Process Area (Ctrl+Click to select multiple)</label>
+                  
+                    <select multiple class="form-control" id="funcarea" name="funcarea" required data-error="Please enter Problem or Pain area" th:field="*{funcArea}" onfocus="inputFocus(this)">
+                    <option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
+                    <option value="MARKETING">MARKETING</option>
+                    <option value="PROMOTION">PROMOTION</option>
+                    <option value="PRODUCTION">PRODUCTION</option>
+                    <option value="SALES">SALES</option>
+                    <option value="CUSTOMER SERVICE SUPPORT">CUSTOMER SERVICE SUPPORT</option>
+                    <option value="ACCOUNTING AND FINANCE">ACCOUNTING AND FINANCE</option>
+                    <option value="DISTRIBUTION">DISTRIBUTION</option>
+                    <option value="RESEARCH AND DEVELOPMENT">RESEARCH AND DEVELOPMENT</option>
+                    <option value="ADMINISTRATIVE AND MANAGEMENT">ADMINISTRATIVE AND MANAGEMENT</option>
+                    <option value="OPERATIONS">OPERATIONS</option>
+                    <option value="INFORMATION TECHNOLOGY SUPPORT">INFORMATION TECHNOLOGY SUPPORT</option>
+                    <option value="PURCHASING">PURCHASING</option>
+                    <option value="LEGAL DEPARTMENT">LEGAL DEPARTMENT</option>
+                    </select>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('funcArea')}" th:errors="*{funcArea}"></div>
+                  </div>
+                    </br> </br></br>
+                </div>
+                
+                 <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Other Function/Process Area (sep by ';' if multiple)</label>
+                    <input type="text" class="input" id="othfarea" name="othfarea" required data-error="Please enter Other Function/Process Area" th:field="*{oFuncArea}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('oFuncArea')}" th:errors="*{oFuncArea}"></div>
+                  </div>
+                </div>
+                
+               <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Technologies ( sep by ';' )</label>
+                    <input type="text" class="input" id="techs" name="techs" required data-error="Please enter techs (sep by ';')" th:field="*{technology}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('technology')}" th:errors="*{technology}"></div>
+                  </div>
+                </div>
+                
+                  <div class="col-md-12">
+                  <div class="label-line">
+                    <span class="span"></span>
+                    <label class="label transition">Solution Title</label>
+                    <input type="text" class="input" id="soltitle" name="soltitle" required data-error="Please enter tittle of the Solution" th:field="*{solnTitle}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('solnTitle')}" th:errors="*{solnTitle}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                   <div class="label-line textarea">
+                    <span class="span"></span>
+                    <label class="label transition">Solution Description</label>
+                    <textarea id="soldesc" name="soldesc" class="input" required data-error="Please enter description for your solution" th:field="*{solnDesc}" onfocus="inputFocus(this)"></textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('solnDesc')}" th:errors="*{solnDesc}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-12">
+                   <div class="label-line textarea">
+                    <span class="span"></span>
+                    <label class="label transition">Business Benifits/Value</label>
+                    <textarea id="busbenifits" name="busbenifits" class="input" required data-error="Please explain the business benifits" th:field="*{buBenift}" onfocus="inputFocus(this)"></textarea>
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('buBenift')}" th:errors="*{buBenift}"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                <div class="label-line file">
+                    <span class="span"></span>
+                    <label class="label active transition">Idea Doc</label>
+                    <input type="file" class="input" id="idoc" name="idoc" required data-error="Please select your Doc" th:field="*{docFile}" onfocus="inputFocus(this)">
+                  </div>
+                  <span class="help-block with-errors" th:if="${#fields.hasErrors('docFile')}" th:errors="*{docFile}"></span>
+                  
+                 </div>
+                  <div class="col-md-6">
+                  <div class="label-line file">
+                    <span class="span"></span>
+                    <label class="label active transition">Demo Video</label>
+                    <input type="file" class="input" id="ivideo" name="ivideo" data-error="Please select your Demo video" th:field="*{videoFile}" onfocus="inputFocus(this)">
+                    <div class="help-block with-errors" th:if="${#fields.hasErrors('videoFile')}" th:errors="*{videoFile}"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" id="idea-form-submit" class="btn btn-common">Send <i class="icon-paper-plane" aria-hidden="true"></i></button>
+                  <div id="ideaSubmit" class="h3 text-center hidden"></div>
+                  <div class="clearfix"></div>
+                </div>
+                
+              </div> 
+            </form> 
+          </div>  
+          
+        </div>
+      </div>
+    </section>
+	<br>
+    <!-- Subscribe Section Start -->
+    <section id="subscribe-section">
+      <div class="container" style="margin-top: 1500px;">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content">
+              <h5>Stay in touch. Subscribe to get the latest news.</h5>
+              <h2>Let's be friend</h2>
+              <div class="subscribe-box">
+                <form class="subscribe-form">
+                  <input type="text" class="form-control" placeholder="Enter Your Email">
+                  <button class="sub-btn">subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Subscribe Section End -->
+
+    <!-- Footer Section Start -->   
+    <footer class="section">  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 col-xs-12">
+           <h3><img src="./assets/img/cap-logo-footer.jpg" alt="" style="width: 200px;"></h3>
+            <p>
+              If you think you have the passion, 
+              attitude and capability to join us 
+              the next big software company
+              s so that we can get the convers.
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Docs</a></li>
+              <li><a href="#">Contact Us</a></li>               
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Learn More</h3>
+            <ul>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Log In</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <h3>Quick Link</h3>
+            <ul>
+              <li><a href="#">Schedule</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Submit Idea</a></li>
+            </ul>
+          </div>          
+        </div>
+      </div>      
+    </footer>  
+    <!-- Footer Section End -->  
+
+    <!-- Copytight Start -->
+    <section id="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="copyright-text text-center">
+             ©Designed and Developed by 
+              <a href="http://graygrids.com/">
+                Hackathon Team
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <!-- Copytight End -->   
+
+    <!-- Go to Top Link -->
+    <a href="#header-wrap" class="back-to-top">
+    <i class="icon-arrow-up"></i>
+    </a>
+
+    <div class="bottom"> <a href="#" class="settings"></a> </div>
+
+    <!-- jQuery Load -->    
+    <script src="./assets/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <!-- Countdown Js -->
+    <script src="./assets/js/jquery.countdown.min.js"></script> 
+    <!-- Smooth scroll JS -->   
+    <script src="./assets/js/smooth-scroll.js"></script>        
+    <!-- Wow Scroll -->
+    <script src="./assets/js/wow.js"></script>
+    <!-- Owl carousel -->
+    <script src="./assets/js/owl.carousel.min.js"></script>
+    <!-- Slicknav js -->
+    <script src="./assets/js/jquery.slicknav.js"></script>
+    <!--  Nivo lightbox Js -->
+    <script src="./assets/js/nivo-lightbox.js"></script>   
+    <!-- Contact Form Scripts -->
+    <script src="./assets/js/form-validator.min.js"></script>  
+    <script src="./assets/js/contact-form-script.js"></script>    
+    <!--  Color Switcher js -->
+    <!-- <script src="./assets/js/color-switcher.js"></script>  -->
+    <!-- All Js plugin -->
+    <script src="./assets/js/main.js"></script> 
+    <!-- Map JS -->
+    <script type="text/javascript" src="./assets/js/jquery.mapit.min.js"></script>
+    <script src="./assets/js/initializers.js"></script>
+	<script type="text/javascript">
+	if($("#thonname").val() != ""){
+		$("#thonname").parent().addClass("active");
+	}
+	if($("#email").val() != ""){
+		$("#email").parent().addClass("active");
+	}
+	if($("#message").val() != ""){
+		$("#message").parent().addClass("active");
+	}
+	if($("#eid").val() != ""){
+		$("#eid").parent().addClass("active");
+	}
+	if($("#idoc").val() != ""){
+		$("#idoc").parent().addClass("active");
+	}
+	if($("#ivideo").val() != ""){
+		$("#ivideo").parent().addClass("active");
+	}
+	function inputFocus(x){
+		x.parentElement.className +=" active";
+	}
+	</script>
+  </body>
+
+</html>

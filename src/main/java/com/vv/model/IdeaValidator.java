@@ -1,5 +1,7 @@
 package com.vv.model;
 
+import java.util.Arrays;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -9,19 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class IdeaValidator {
 	@NotNull
 	@Size(min=2, max=200)
-	private String capId;
+	private String name;
 	@NotNull
 	@Size(min=2, max=200)
-	private String ideaThonName;
+	private String capId;
 	@NotNull
 	@Email
 	private String capEmail;
-	@NotNull
-	@Size(min=5, max=10000)
-	private String ideaThesis;
-	@NotNull
-	private MultipartFile docFile;
-	private MultipartFile videoFile;
 	@NotNull
 	@Size(min=2, max=200)
 	private String servicebu;
@@ -39,51 +35,46 @@ public class IdeaValidator {
 	private String problemArea;
 	@NotNull
 	@Size(min=1, max=200)
-	private String[] vertIndus;
+	private String[] industry;
 	@Size(min=2, max=200)
-	private String oVertical;
+	private String oIndustry;
 	@NotNull
 	@Size(min=1, max=200)
-	private String[] farea;
+	private String[] funcArea;
 	@Size(min=2, max=200)
-	private String ofrea;
+	private String oFuncArea;
 	@NotNull
 	@Size(min=2, max=200)
-	private String solTit;
+	private String technology;
 	@NotNull
 	@Size(min=2, max=200)
-	private String sDesc;
+	private String solnTitle;
+	@NotNull
+	@Size(min=5, max=10000)
+	private String solnDesc;
 	@NotNull
 	@Size(min=2, max=200)
-	private String technol;
+	private String buBenift;
 	@NotNull
-	@Size(min=2, max=200)
-	private String bubenift;
-	
-	
+	private MultipartFile docFile;
+	private MultipartFile videoFile;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getCapId() {
 		return capId;
 	}
 	public void setCapId(String capId) {
 		this.capId = capId;
 	}
-	public String getIdeaThonName() {
-		return ideaThonName;
-	}
-	public void setIdeaThonName(String ideaThonName) {
-		this.ideaThonName = ideaThonName;
-	}
 	public String getCapEmail() {
 		return capEmail;
 	}
 	public void setCapEmail(String capEmail) {
 		this.capEmail = capEmail;
-	}
-	public String getIdeaThesis() {
-		return ideaThesis;
-	}
-	public void setIdeaThesis(String ideaThesis) {
-		this.ideaThesis = ideaThesis;
 	}
 	public String getServicebu() {
 		return servicebu;
@@ -115,42 +106,53 @@ public class IdeaValidator {
 	public void setProblemArea(String problemArea) {
 		this.problemArea = problemArea;
 	}
-	public String[] getVertIndus() {
-		return vertIndus;
+	public String[] getIndustry() {
+		return industry;
 	}
-	public void setVertIndus(String[] vertIndus) {
-		this.vertIndus = vertIndus;
-		System.out.println("LENGHT --> "+vertIndus.length);
+	public void setIndustry(String[] industry) {
+		this.industry = industry;
 	}
-	public String[] getFarea() {
-		return farea;
+	public String getoIndustry() {
+		return oIndustry;
 	}
-	public void setFarea(String[] farea) {
-		this.farea = farea;
+	public void setoIndustry(String oIndustry) {
+		this.oIndustry = oIndustry;
 	}
-	public String getSolTit() {
-		return solTit;
+	public String[] getFuncArea() {
+		return funcArea;
 	}
-	public void setSolTit(String solTit) {
-		this.solTit = solTit;
+	public void setFuncArea(String[] funcArea) {
+		this.funcArea = funcArea;
 	}
-	public String getsDesc() {
-		return sDesc;
+	public String getoFuncArea() {
+		return oFuncArea;
 	}
-	public void setsDesc(String sDesc) {
-		this.sDesc = sDesc;
+	public void setoFuncArea(String oFuncArea) {
+		this.oFuncArea = oFuncArea;
 	}
-	public String getTechnol() {
-		return technol;
+	public String getTechnology() {
+		return technology;
 	}
-	public void setTechnol(String technol) {
-		this.technol = technol;
+	public void setTechnology(String technology) {
+		this.technology = technology;
 	}
-	public String getBubenift() {
-		return bubenift;
+	public String getSolnTitle() {
+		return solnTitle;
 	}
-	public void setBubenift(String bubenift) {
-		this.bubenift = bubenift;
+	public void setSolnTitle(String solnTitle) {
+		this.solnTitle = solnTitle;
+	}
+	public String getSolnDesc() {
+		return solnDesc;
+	}
+	public void setSolnDesc(String solnDesc) {
+		this.solnDesc = solnDesc;
+	}
+	public String getBuBenift() {
+		return buBenift;
+	}
+	public void setBuBenift(String buBenift) {
+		this.buBenift = buBenift;
 	}
 	public MultipartFile getDocFile() {
 		return docFile;
@@ -164,22 +166,15 @@ public class IdeaValidator {
 	public void setVideoFile(MultipartFile videoFile) {
 		this.videoFile = videoFile;
 	}
-	public String getoVertical() {
-		return oVertical;
-	}
-	public void setoVertical(String oVertical) {
-		this.oVertical = oVertical;
-	}
-	public String getOfrea() {
-		return ofrea;
-	}
-	public void setOfrea(String ofrea) {
-		this.ofrea = ofrea;
-	}
+	
 	@Override
 	public String toString() {
-		return "IdeaValidator [capId=" + capId + ", ideaThonName=" + ideaThonName + ", capEmail=" + capEmail
-				+ ", ideaThesis=" + ideaThesis + ", docFile=" + docFile + ", videoFile=" + videoFile + "]";
+		return "IdeaValidator [name=" + name + ", capId=" + capId + ", capEmail=" + capEmail + ", servicebu="
+				+ servicebu + ", projectName=" + projectName + ", contactNum=" + contactNum + ", locationName="
+				+ locationName + ", problemArea=" + problemArea + ", industry=" + Arrays.toString(industry)
+				+ ", oIndustry=" + oIndustry + ", funcArea=" + Arrays.toString(funcArea) + ", oFuncArea=" + oFuncArea
+				+ ", technology=" + technology + ", solnTitle=" + solnTitle + ", solnDesc=" + solnDesc + ", buBenift="
+				+ buBenift + ", docFile=" + docFile + ", videoFile=" + videoFile + "]";
 	}
 	
 }

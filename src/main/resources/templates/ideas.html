@@ -82,7 +82,7 @@
                    <ul class="dropdown-menu">
                     <li><a href="about">About Us</a></li>
                     <li><a href="gallery">Gallery</a></li>
-                    <li><a href="pricing">Pricing Table</a></li>
+                    <li><a href="submitIdea">Submit Idea</a></li>
                     <li><a href="sponsors">Sponsors</a></li>
                     <li><a href="single-post">Single Post</a></li>
                   </ul>
@@ -90,7 +90,7 @@
                 <li><a href="schedule">Schedule</a></li>              
                 <li><a href="speakers">Speakers</a></li>                
                 <li class="active"><a href="ideaList">Ideas</a></li>             
-                <li class="animated bounceIn"><a href="pricing">SUBMIT IDEA</a></li>                
+                <li class="animated bounceIn"><a href="submitIdea">SUBMIT IDEA</a></li>                
                 <li><a href="contact">Contact</a></li>                
               </ul>
             </div><!-- /navbar-collapse -->
@@ -103,7 +103,7 @@
                <ul class="dropdown">
                 <li><a href="about">About Us</a></li>
                 <li><a href="gallery">Gallery</a></li>
-                <li><a href="pricing">Pricing Table</a></li>
+                <li><a href="submitIdea">Submit Idea</a></li>
                 <li><a href="sponsors">Sponsors</a></li>
                 <li><a href="single-post">Single Post</a></li>
               </ul>
@@ -111,7 +111,7 @@
             <li><a href="schedule">Schedule</a></li>              
             <li><a href="speakers">Speakers</a></li>                
             <li class="active"><a href="blog">Blog</a></li>             
-            <li><a href="pricing">SUBMIT IDEA</a></li>                
+            <li><a href="submitIdea">SUBMIT IDEA</a></li>                
             <li><a href="contact">Contact</a></li> 
            </ul>
           <!-- Mobile Menu End -->
@@ -363,7 +363,7 @@
               <li><a href="#">Gallery</a></li>
               <li><a href="#">Team</a></li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Submit Idea</a></li>
             </ul>
           </div>          
         </div>
@@ -446,7 +446,7 @@
                     	success: function (data) {
                     		$("#postdiv").html("");
                     		$.each(data.content, function (index, value) {
-                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.ideaThonName+'</a></h3><div class="meta"><span class="meta-part"><a href="#"><i class="icon-user"></i>' +value.profile.capId+'</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.ideaThonName+'</a></span></div><p>'+value.ideaThesis+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B"><option value="hello">Approve</option><option value="assign">Assign</option><option value="review">Review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-6"><input type="button" class="btn btn-default form-control" value="Check" onclick="rateIdea(\''+value.profile.capId+'\')"></div></div></div></div></div>');
+                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#"><i class="icon-user"></i>' +value.profile.capId+'</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B"><option value="hello">Approve</option><option value="assign">Assign</option><option value="review">Review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-6"><input type="button" class="btn btn-default form-control" value="Check" onclick="rateIdea(\''+value.profile.capId+'\')"></div></div></div></div></div>');
                         		$("#"+value.profile.capId+"S").rateYo({
                       	          rating: value.rating,
                       	          numStars: 5,

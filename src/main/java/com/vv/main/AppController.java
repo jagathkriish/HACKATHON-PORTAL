@@ -20,7 +20,6 @@ public class AppController {
 
 	@GetMapping("/")
     public String Main() throws MessagingException {
-		//String baseTemplateName = "EnterExpenses";
 		String baseTemplateName = "index";
         return baseTemplateName;
     }
@@ -46,14 +45,12 @@ public class AppController {
 	
 	@GetMapping("/blog")
     public String blogPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String blogTemplateName = "blog";
         return blogTemplateName;
     }
 	
 	@GetMapping("/about")
     public String aboutPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String aboutTemplateName = "about";
         return aboutTemplateName;
     }
@@ -65,51 +62,44 @@ public class AppController {
         return galleryTemplateName;
     }
 	
-	@GetMapping("/pricing")
+	@GetMapping("/submitIdea")
     public String pricingPage(IdeaValidator ideaValidator) {
-		//String baseTemplateName = "EnterExpenses";
-		String pricingTemplateName = "pricing";
+		String pricingTemplateName = "ideaForm";
         return pricingTemplateName;
     }
 	
 	@GetMapping("/results")
     public String resultsPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String resultsTemplateName = "results";
         return resultsTemplateName;
     }
 	
 	@GetMapping("/schedule")
     public String schedulePage() {
-		//String baseTemplateName = "EnterExpenses";
 		String scheduleTemplateName = "schedule";
         return scheduleTemplateName;
     }
 	
 	@GetMapping("/single-post")
     public String singlePostPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String singlePostTemplateName = "single-post";
         return singlePostTemplateName;
     }
 	
 	@GetMapping("/speakers")
     public String speakersPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String speakersTemplateName = "speakers";
         return speakersTemplateName;
     }
 	
 	@GetMapping("/sponsors")
     public String sponsorsPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String sponsorsTemplateName = "sponsors";
         return sponsorsTemplateName;
     }
 	
 	@GetMapping("/ideaList")
     public String ideasPage() {
-		//String baseTemplateName = "EnterExpenses";
 		String ideasTemplateName = "ideas";
         return ideasTemplateName;
     }

@@ -52,9 +52,13 @@ public class IdeaContoller {
 			RedirectAttributes redirectAttributes) {
 		String videoFileName = "";
 		String docFileName = "";
+		String industry = "";
+		String areaOfFunc = "";
 		if (bindingResult.hasErrors()) {
 			return "pricing";
 		}
+		
+		System.out.println(ideaValidator);
 		
 		docFileName = new FileNameBuilder().generateFileName(ideaValidator.getDocFile().getOriginalFilename(), ideaValidator.getCapId(), "d");
 		if(ideaValidator.getVideoFile() != null && ideaValidator.getVideoFile().isEmpty()){
@@ -64,11 +68,29 @@ public class IdeaContoller {
 
 		}
 		
-		Profile profileBean = new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail());
+		if(!ideaValidator.getIndustry().equals(null)){
+			for(int i=0;i<ideaValidator.getIndustry().length;i++){
+				industry = industry+";"+ideaValidator.getIndustry()[i];
+			}
+		}else{
+			industry = "NA";
+		}
+		
+		if(!ideaValidator.getFuncArea().equals(null)){
+			for(int i=0;i<ideaValidator.getFuncArea().length;i++){
+				areaOfFunc = areaOfFunc+";"+ideaValidator.getFuncArea()[i];
+			}
+		}else{
+			areaOfFunc = "NA";
+		}
+		
+		//Profile profileBean = new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail());
+		
+		Profile profileBean = new Profile(ideaValidator.getName(),ideaValidator.getCapId(), ideaValidator.getCapEmail(),ideaValidator.getContactNum(),ideaValidator.getServicebu(),ideaValidator.getProjectName(),ideaValidator.getLocationName());
 		//Stream<Profile> profile = Stream.of(new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail()));
 		//profile.forEach(profileRepository::save);
 		
-		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getIdeaThesis(), docFileName,videoFileName,"NA",0));
+		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getProblemArea(), industry,areaOfFunc,ideaValidator.getTechnology(),ideaValidator.getSolnTitle(),ideaValidator.getSolnDesc(),ideaValidator.getBuBenift(), docFileName,videoFileName,"NA",0));
 		ideas.forEach(ideaRepository::save);
 
 		if(videoFileName != "NA"){
@@ -79,7 +101,7 @@ public class IdeaContoller {
 		  redirectAttributes.addFlashAttribute("msgSubmit",
 		  "You successfully uploaded your idea");
 		  
-		return "redirect:/pricing";
+		return "redirect:/submitIdea";
 	}
 	
 	@PostMapping(value = "/rateIdea")
