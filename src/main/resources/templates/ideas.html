@@ -34,6 +34,52 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style type="text/css">
+    
+    .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    direction: ltr;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 2.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+    </style>
+    
   </head>
   <body>
 
@@ -149,6 +195,34 @@
             <div id="postdiv">
                         <!-- End Post -->  
 			</div>
+			
+			<div id="detailsNav" class="overlay" style="background-color: lightgreen;display: none;">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeDetails()">&times;</a>
+			  
+<table>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">ID :</td><td style="width: 75%;" align="right"> <div id="setideaid"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Problem :</td><td  style="width: 75%;" align="right"> <div id="setprob"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Industry :</td><td style="width: 75%;" align="right"> <div id="setindustry"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Area Of Function :</td><td  style="width: 75%;" align="right"> <div id="setareaoffunc"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Technology :</td><td  style="width: 75%;" align="right"> <div id="settech"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Solution Title :</td><td style="width: 75%;" align="right"> <div id="setsoltitle"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Solution Description :</td><td style="width: 75%;" align="right"> <div id="setsoldesc"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">BU Benifit :</td><td style="width: 75%;" align="right"> <div id="setbubenift"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Status :</td><td style="width: 75%;" align="right"> <div id="setstatus"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Rating :</td><td style="width: 75%;" align="right"> <div id="setrating"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Cap Name :</td><td style="width: 75%;" align="right"> <div id="setcapname"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Cap Id :</td><td style="width: 75%;" align="right"> <div id="setcapid"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Cap Email :</td><td style="width: 75%;" align="right"> <div id="setcapmail"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Phone :</td><td style="width: 75%;" align="right"> <div id="setphone"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">BU Service :</td><td style="width: 75%;" align="right"> <div id="setbuservice"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Project :</td><td style="width: 75%;" align="right"> <div id="setproject"></div></td></tr>
+		<tr style="width: 100%"><td style="width: 25%;" align="left">Location :</td><td style="width: 75%;" align="right"> <div id="setlocation"></div></td></tr>
+</table>
+			  
+			</div>
+			
+			
+			
             <!-- Start Pagination -->
         	<div>
 			    <nav aria-label="Page navigation">
@@ -446,7 +520,7 @@
                     	success: function (data) {
                     		$("#postdiv").html("");
                     		$.each(data.content, function (index, value) {
-                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#"><i class="icon-user"></i>' +value.profile.capId+'</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B"><option value="hello">Approve</option><option value="assign">Assign</option><option value="review">Review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-6"><input type="button" class="btn btn-default form-control" value="Check" onclick="rateIdea(\''+value.profile.capId+'\')"></div></div></div></div></div>');
+                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenifit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\')"><i class="icon-user"></i>' +value.profile.capId+'</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B"><option value="hello">Approve</option><option value="assign">Assign</option><option value="review">Review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-6"><input type="button" class="btn btn-default form-control" value="Check" onclick="rateIdea(\''+value.profile.capId+'\')"></div></div></div></div></div>');
                         		$("#"+value.profile.capId+"S").rateYo({
                       	          rating: value.rating,
                       	          numStars: 5,
@@ -515,6 +589,42 @@
             }
 		});
     }
+    
+    
+    
+    function openDetails(data,data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16){
+    	alert(data);
+    	
+    	document.getElementById("setideaid").innerHTML = data;
+    	document.getElementById("setprob").innerHTML = data1;
+    	document.getElementById("setindustry").innerHTML = data2;
+    	document.getElementById("setareaoffunc").innerHTML = data3;
+    	document.getElementById("settech").innerHTML = data4;
+    	document.getElementById("setsoltitle").innerHTML = data5;
+    	document.getElementById("setsoldesc").innerHTML = data6;
+    	document.getElementById("setbubenift").innerHTML = data7;
+    	document.getElementById("setstatus").innerHTML = data8;
+    	document.getElementById("setrating").innerHTML = data9;
+    	document.getElementById("setcapname").innerHTML = data10;
+    	document.getElementById("setcapid").innerHTML = data11;
+    	document.getElementById("setcapmail").innerHTML = data12;
+    	document.getElementById("setphone").innerHTML = data13;
+    	document.getElementById("setbuservice").innerHTML = data14;
+    	document.getElementById("setproject").innerHTML = data15;
+    	document.getElementById("setlocation").innerHTML = data16;
+
+    	
+    	document.getElementById("detailsNav").style.width = "100%";
+    	document.getElementById("detailsNav").style.display = "block";
+    }
+    
+    function closeDetails(){
+    	document.getElementById("detailsNav").style.width = "0%";
+    	document.getElementById("detailsNav").style.display = "none";
+    }
+    
+    
+    
 	</script>
   </body>
 </html>
