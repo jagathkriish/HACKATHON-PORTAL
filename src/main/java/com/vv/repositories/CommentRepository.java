@@ -9,5 +9,5 @@ import com.vv.model.Comments;
 public interface CommentRepository extends PagingAndSortingRepository<Comments, Long>{
 	@Override
 	List<Comments> findAll();
-	List<Comments> findByProfile_id(Long profile_id);
+	List<Comments> findByideaId(Long idea_id);
 }

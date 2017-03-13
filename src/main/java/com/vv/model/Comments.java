@@ -19,7 +19,7 @@ public class Comments implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@ManyToOne(cascade = {CascadeType.ALL})
-	private Profile profile;
+	private Idea idea;
 	private String comment;
 	private String commentedBy;
 	@Column(name = "createdAt", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -27,12 +27,19 @@ public class Comments implements Serializable{
 	
 	protected Comments() {}
 
-	public Comments(Profile profile, String comment, String commentedBy, Date createdAt) {
+	public Comments(Idea idea, String comment, String commentedBy, Date createdAt) {
 		super();
-		this.profile = profile;
+		this.idea = idea;
 		this.comment = comment;
 		this.commentedBy = commentedBy;
 		this.createdAt = createdAt;
+	}
+	
+	public Comments(Idea idea, String comment, String commentedBy) {
+		super();
+		this.idea = idea;
+		this.comment = comment;
+		this.commentedBy = commentedBy;
 	}
 
 	public long getId() {
@@ -43,12 +50,12 @@ public class Comments implements Serializable{
 		this.id = id;
 	}
 
-	public Profile getProfile() {
-		return profile;
+	public Idea getIdea() {
+		return idea;
 	}
 
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	public void setIdea(Idea idea) {
+		this.idea = idea;
 	}
 
 	public String getComment() {
@@ -77,8 +84,8 @@ public class Comments implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Comments [id=" + id + ", profile=" + profile + ", comment=" + comment + ", commentedBy=" + commentedBy
+		return "Comments [id=" + id + ", idea=" + idea + ", comment=" + comment + ", commentedBy=" + commentedBy
 				+ ", createdAt=" + createdAt + "]";
 	}
-
+	
 }

@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vv.model.Comments;
-import com.vv.model.Profile;
+import com.vv.model.Idea;
 import com.vv.repositories.CommentRepository;
-import com.vv.repositories.ProfileRepository;
+import com.vv.repositories.IdeaRepository;
 
 @RestController
 public class CommentRestController {
 	private CommentRepository commentRepository;
-	private ProfileRepository profileRepository;
-	public CommentRestController(CommentRepository commentRepository,ProfileRepository profileRepository){
+	private IdeaRepository ideaRepository;
+	public CommentRestController(CommentRepository commentRepository,IdeaRepository ideaRepository){
 		this.commentRepository = commentRepository;
-		this.profileRepository = profileRepository;
+		this.ideaRepository = ideaRepository;
 	}
 	
 	@GetMapping("/comments")
@@ -25,10 +25,10 @@ public class CommentRestController {
 		return this.commentRepository.findAll();
 	}
 	
-	@GetMapping("/comments/{capId}")
-	public List<Comments> cmtIdList(@PathVariable String capId){
-		Profile profile = profileRepository.findOneByCapId(capId);
-		return this.commentRepository.findByProfile_id(profile.getId());
+	@GetMapping("/comments/{ideaId}")
+	public List<Comments> cmtsByIdeaId(@PathVariable String ideaId){
+		Idea idea = ideaRepository.findOneById(Long.parseLong(ideaId));
+		return this.commentRepository.findByideaId(idea.getId());
 	}
 	
 	
