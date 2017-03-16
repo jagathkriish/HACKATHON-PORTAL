@@ -65,7 +65,6 @@ public class IdeaContoller {
 			videoFileName = "NA";
 		}else{
 			videoFileName = new FileNameBuilder().generateFileName(ideaValidator.getVideoFile().getOriginalFilename(),ideaValidator.getCapId(),"v");
-
 		}
 		
 		if(!ideaValidator.getIndustry().equals(null)){
