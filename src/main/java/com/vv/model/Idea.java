@@ -21,6 +21,7 @@ public class Idea implements Serializable{
 	private long id;
 	@ManyToOne(cascade = {CascadeType.ALL})
 	private Profile profile;
+	private String itype;
 	@Column(length=1000)
 	private String problem;
 	private String industry;
@@ -32,6 +33,8 @@ public class Idea implements Serializable{
 	private String solnDesc;
 	@Column(length=1000)
 	private String buBenefit;
+	private String buInvest;
+	private String buIncome;
 	private String documentName;
 	private String videoName;
 	private String status;
@@ -42,11 +45,12 @@ public class Idea implements Serializable{
 	
 	protected Idea() {}
 
-	public Idea(Profile profile, String problem, String industry, String areaOfFunc, String technology,
-			String solnTitle, String solnDesc, String buBenefit, String documentName, String videoName, String status,
-			float rating) {
+	public Idea(Profile profile, String itype, String problem, String industry, String areaOfFunc, String technology,
+			String solnTitle, String solnDesc, String buBenefit, String buInvest, String buIncome, String documentName,
+			String videoName, String status, float rating) {
 		super();
 		this.profile = profile;
+		this.itype = itype;
 		this.problem = problem;
 		this.industry = industry;
 		this.areaOfFunc = areaOfFunc;
@@ -54,6 +58,8 @@ public class Idea implements Serializable{
 		this.solnTitle = solnTitle;
 		this.solnDesc = solnDesc;
 		this.buBenefit = buBenefit;
+		this.buInvest = buInvest;
+		this.buIncome = buIncome;
 		this.documentName = documentName;
 		this.videoName = videoName;
 		this.status = status;
@@ -74,6 +80,14 @@ public class Idea implements Serializable{
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+
+	public String getItype() {
+		return itype;
+	}
+
+	public void setItype(String itype) {
+		this.itype = itype;
 	}
 
 	public String getProblem() {
@@ -132,6 +146,22 @@ public class Idea implements Serializable{
 		this.buBenefit = buBenefit;
 	}
 
+	public String getBuInvest() {
+		return buInvest;
+	}
+
+	public void setBuInvest(String buInvest) {
+		this.buInvest = buInvest;
+	}
+
+	public String getBuIncome() {
+		return buIncome;
+	}
+
+	public void setBuIncome(String buIncome) {
+		this.buIncome = buIncome;
+	}
+
 	public String getDocumentName() {
 		return documentName;
 	}
@@ -174,11 +204,11 @@ public class Idea implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Idea [id=" + id + ", profile=" + profile + ", problem=" + problem + ", industry=" + industry
-				+ ", areaOfFunc=" + areaOfFunc + ", technology=" + technology + ", solnTitle=" + solnTitle
-				+ ", solnDesc=" + solnDesc + ", buBenefit=" + buBenefit + ", documentName=" + documentName
-				+ ", videoName=" + videoName + ", status=" + status + ", rating=" + rating + ", createdAt=" + createdAt
-				+ "]";
+		return "Idea [id=" + id + ", profile=" + profile + ", itype=" + itype + ", problem=" + problem + ", industry="
+				+ industry + ", areaOfFunc=" + areaOfFunc + ", technology=" + technology + ", solnTitle=" + solnTitle
+				+ ", solnDesc=" + solnDesc + ", buBenefit=" + buBenefit + ", buInvest=" + buInvest + ", buIncome="
+				+ buIncome + ", documentName=" + documentName + ", videoName=" + videoName + ", status=" + status
+				+ ", rating=" + rating + ", createdAt=" + createdAt + "]";
 	}
 	
 }

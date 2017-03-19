@@ -31,17 +31,19 @@ public class IdeaValidator {
 	@Size(min=2, max=200)
 	private String locationName;
 	@NotNull
+	private String ideaType;
+	@NotNull
 	@Size(min=2, max=200)
 	private String problemArea;
 	@NotNull
 	@Size(min=1, max=200)
 	private String[] industry;
-	@Size(min=2, max=200)
+	//@Size(min=2, max=200)
 	private String oIndustry;
 	@NotNull
 	@Size(min=1, max=200)
 	private String[] funcArea;
-	@Size(min=2, max=200)
+	//@Size(min=2, max=200)
 	private String oFuncArea;
 	@NotNull
 	@Size(min=2, max=200)
@@ -55,6 +57,12 @@ public class IdeaValidator {
 	@NotNull
 	@Size(min=2, max=200)
 	private String buBenift;
+	@NotNull
+	@Size(min=2, max=20)
+	private String buinvest;
+	@NotNull
+	@Size(min=2, max=20)
+	private String buincome;
 	@NotNull
 	private MultipartFile docFile;
 	private MultipartFile videoFile;
@@ -99,6 +107,12 @@ public class IdeaValidator {
 	}
 	public void setLocationName(String locationName) {
 		this.locationName = locationName;
+	}
+	public String getIdeaType() {
+		return ideaType;
+	}
+	public void setIdeaType(String ideaType) {
+		this.ideaType = ideaType;
 	}
 	public String getProblemArea() {
 		return problemArea;
@@ -154,6 +168,18 @@ public class IdeaValidator {
 	public void setBuBenift(String buBenift) {
 		this.buBenift = buBenift;
 	}
+	public String getBuinvest() {
+		return buinvest;
+	}
+	public void setBuinvest(String buinvest) {
+		this.buinvest = buinvest;
+	}
+	public String getBuincome() {
+		return buincome;
+	}
+	public void setBuincome(String buincome) {
+		this.buincome = buincome;
+	}
 	public MultipartFile getDocFile() {
 		return docFile;
 	}
@@ -166,15 +192,15 @@ public class IdeaValidator {
 	public void setVideoFile(MultipartFile videoFile) {
 		this.videoFile = videoFile;
 	}
-	
 	@Override
 	public String toString() {
 		return "IdeaValidator [name=" + name + ", capId=" + capId + ", capEmail=" + capEmail + ", servicebu="
 				+ servicebu + ", projectName=" + projectName + ", contactNum=" + contactNum + ", locationName="
-				+ locationName + ", problemArea=" + problemArea + ", industry=" + Arrays.toString(industry)
-				+ ", oIndustry=" + oIndustry + ", funcArea=" + Arrays.toString(funcArea) + ", oFuncArea=" + oFuncArea
-				+ ", technology=" + technology + ", solnTitle=" + solnTitle + ", solnDesc=" + solnDesc + ", buBenift="
-				+ buBenift + ", docFile=" + docFile + ", videoFile=" + videoFile + "]";
+				+ locationName + ", ideaType=" + ideaType + ", problemArea=" + problemArea + ", industry="
+				+ Arrays.toString(industry) + ", oIndustry=" + oIndustry + ", funcArea=" + Arrays.toString(funcArea)
+				+ ", oFuncArea=" + oFuncArea + ", technology=" + technology + ", solnTitle=" + solnTitle + ", solnDesc="
+				+ solnDesc + ", buBenift=" + buBenift + ", buinvest=" + buinvest + ", buincome=" + buincome
+				+ ", docFile=" + docFile + ", videoFile=" + videoFile + "]";
 	}
 	
 }

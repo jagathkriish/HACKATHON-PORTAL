@@ -54,8 +54,10 @@ public class IdeaContoller {
 		String docFileName = "";
 		String industry = "";
 		String areaOfFunc = "";
+		String buinvest = "";
+		String buincome = "";
 		if (bindingResult.hasErrors()) {
-			return "pricing";
+			return "ideaForm";
 		}
 		
 		System.out.println(ideaValidator);
@@ -83,13 +85,25 @@ public class IdeaContoller {
 			areaOfFunc = "NA";
 		}
 		
+		if(!ideaValidator.getBuinvest().equals(null)){
+			buinvest = ideaValidator.getBuinvest();
+		}else{
+			buinvest = "NA";
+		}
+		
+		if(!ideaValidator.getBuincome().equals(null)){
+			buincome = ideaValidator.getBuincome();
+		}else{
+			buincome = "NA";
+		}
+		
 		//Profile profileBean = new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail());
 		
 		Profile profileBean = new Profile(ideaValidator.getName(),ideaValidator.getCapId(), ideaValidator.getCapEmail(),ideaValidator.getContactNum(),ideaValidator.getServicebu(),ideaValidator.getProjectName(),ideaValidator.getLocationName());
 		//Stream<Profile> profile = Stream.of(new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail()));
 		//profile.forEach(profileRepository::save);
-		
-		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getProblemArea(), industry,areaOfFunc,ideaValidator.getTechnology(),ideaValidator.getSolnTitle(),ideaValidator.getSolnDesc(),ideaValidator.getBuBenift(), docFileName,videoFileName,"NA",0));
+		System.out.println(ideaValidator);
+		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getIdeaType(),ideaValidator.getProblemArea(), industry,areaOfFunc,ideaValidator.getTechnology(),ideaValidator.getSolnTitle(),ideaValidator.getSolnDesc(),ideaValidator.getBuBenift(),buinvest,buincome, docFileName,videoFileName,"NA",0));
 		ideas.forEach(ideaRepository::save);
 
 		if(videoFileName != "NA"){

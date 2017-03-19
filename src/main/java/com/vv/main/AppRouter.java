@@ -110,6 +110,12 @@ public class AppRouter {
         return "editable";
     }
 	
+	/*@GetMapping("/hello")
+    public String E404Page() {
+		String error404Page = "404";
+        return error404Page;
+    }*/
+	
 	/*@GetMapping("/old")
     public String viewHomePage(Model model) throws IOException {
 		String baseTemplateName = "EnterExpenses";
