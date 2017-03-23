@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
   
 <head>
     <meta charset="utf-8">
@@ -92,7 +92,8 @@
                 <li><a href="speakers">Speakers</a></li>                
                 <li><a href="ideaList">Ideas</a></li>             
                 <li class="active animated bounceIn"><a href="submitIdea">Submit Idea</a></li>                
-                <li><a href="contact">Contact</a></li>                
+                <li><a href="contact">Contact</a></li> 
+                <li><a href="javascript: document.logoutForm.submit()">Logout</a></li>               
               </ul>
             </div><!-- /navbar-collapse -->
           </div><!-- /container -->
@@ -114,6 +115,7 @@
             <li ><a href="blog">Blog</a></li>             
             <li class="active"><a href="submitIdea">Submit Idea</a></li>                
             <li><a href="contact">Contact</a></li> 
+            <li><a href="javascript: document.logoutForm.submit()">Logout</a></li>
            </ul>
           <!-- Mobile Menu End -->
 
@@ -139,7 +141,9 @@
       </div>
     </div>
     <!-- Page Header End-->
-
+	<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+            	<input type="submit" value="Sign Out"/>
+    </form>
 	    <section id="contact">
       <div class="container">
         <div class="row wow" >

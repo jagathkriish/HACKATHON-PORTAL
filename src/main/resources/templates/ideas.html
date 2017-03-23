@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,6 +99,7 @@
                   <span><i class="icon-phone"></i> 040 2312 6000</span>
                   <!-- <span><i class="icon-envelope"></i><a href="#"><span class="__cf_email__" data-cfemail="61040c00080d21060c00080d4f020e0c">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a></span> -->
                   <span><i class="icon-envelope"></i><a href="#">hr@capgemini.com</a></span>
+                  Welcome: <span sec:authentication="name">USER</span>
               </div>
               <!-- Quick Contacts End -->
             </div>
@@ -138,7 +139,8 @@
                 <li><a href="speakers">Speakers</a></li>                
                 <li class="active"><a href="ideaList">Ideas</a></li>             
                 <li class="animated bounceIn"><a href="submitIdea">SUBMIT IDEA</a></li>                
-                <li><a href="contact">Contact</a></li>                
+                <li><a href="contact">Contact</a></li>  
+                <li><a href="javascript: document.logoutForm.submit()">Logout</a></li>          
               </ul>
             </div><!-- /navbar-collapse -->
           </div><!-- /container -->
@@ -196,7 +198,9 @@
             <div id="postdiv">
                         <!-- End Post -->  
 			</div>
-			
+			<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+            	<input type="submit" value="Sign Out"/>
+        	</form>
 <div id="detailsNav" class="overlay" style="background-color: lightgreen;display: none;overflow:scroll">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeDetails()">&times;</a>
 	<div style="margin-left: 3%;margin-top: 3%;float: left">			  
@@ -232,10 +236,8 @@
 	</table>
 	</div>	 -->		  
 </div>
-			
-			
-			
             <!-- Start Pagination -->
+			<span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span>
         	<div id="paginationDivID">
 			    <nav aria-label="Page navigation">
 			        <ul class="pagination" id="paginationId"></ul>
@@ -532,7 +534,12 @@
                     	success: function (data) {
                     		$("#postdiv").html("");
                     		$.each(data.content, function (index, value) {
-                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenefit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\',\''+value.buInvest+'\',\''+value.buIncome+'\',\''+value.itype+'\')"><i class="icon-user"></i>Click for More...</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B" value="'+value.status+'"><option value="initial">Initial</option><option value="approve">Approve</option><option value="assign">Assign</option><option value="review">review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-4"><input type="button" class="btn btn-success form-control" value="Update" onclick="rateIdea(\''+value.profile.capId+'\',\''+value.rating+'\',\''+value.status+'\')"></div><div class="col-md-2" style="padding-top:20px"><a href="/files/'+value.documentName+'"><i class="fa fa-download fa-2x" aria-hidden="true"></i></a></div></div></div></div></div>');
+                    			var role = $("#roleId").text();
+                    			var auth_sec = "sec:authorize=\"hasRole('ROLE_ADMIN')\"";
+                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenefit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\',\''+value.buInvest+'\',\''+value.buIncome+'\',\''+value.itype+'\')"><i class="icon-user"></i>Click for More...</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div '+auth_sec+' class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B" value="'+value.status+'"><option value="initial">Initial</option><option value="approve">Approve</option><option value="assign">Assign</option><option value="review">review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-4"><input type="button" class="btn btn-success form-control" value="Update" onclick="rateIdea(\''+value.profile.capId+'\',\''+value.rating+'\',\''+value.status+'\')"></div><div class="col-md-2" style="padding-top:20px"><a href="/files/'+value.documentName+'"><i class="fa fa-download fa-2x" aria-hidden="true"></i></a></div></div></div></div></div>');
+                        		if(role.indexOf("ROLE_ADMIN") === -1){
+                        			$("#"+value.profile.capId+"B").attr('disabled',true);
+                        		}
                         		$("#"+value.profile.capId+"S").rateYo({
                       	          rating: value.rating,
                       	          numStars: 5,

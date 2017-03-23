@@ -12,6 +12,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+
 import com.vv.config.AppProperties;
 
 @SpringBootApplication
@@ -35,6 +39,13 @@ public class Application {
 		//this.repository = repository;
 		this.properties = properties;
 	}
+	
+	@Bean
+    public TemplateEngine springTemplateEngine() {
+        final SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.addDialect(new SpringSecurityDialect()); 
+        return templateEngine;
+    }
 	
 	@Bean
 	public CommandLineRunner messages(){

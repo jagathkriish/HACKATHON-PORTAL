@@ -104,6 +104,12 @@ public class AppRouter {
         return ideasTemplateName;
     }
 	
+	@GetMapping("/login")
+    public String loginPage() {
+		String ideasTemplateName = "login";
+        return ideasTemplateName;
+    }
+	
 	@GetMapping(value = "/editable")
     public String editable(final Model model) throws IOException {
         model.addAttribute("baseTemplate", this.emailService.getEditableMailTemplate());
