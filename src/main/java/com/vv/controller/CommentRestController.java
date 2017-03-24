@@ -25,7 +25,7 @@ public class CommentRestController {
 		return this.commentRepository.findAll();
 	}
 	
-	@GetMapping("/comments/{ideaId}")
+	@GetMapping("/iComments/{ideaId}")
 	public List<Comments> cmtsByIdeaId(@PathVariable String ideaId){
 		Idea idea = ideaRepository.findOneById(Long.parseLong(ideaId));
 		return this.commentRepository.findByideaId(idea.getId());

@@ -78,6 +78,15 @@
     right: 45px;
     font-size: 60px;
 }
+
+
+ .cmtClass{
+    width: 50em; 
+    border: 1px solid #000000;
+    word-wrap: break-word;
+    border-color: white;
+}
+
     </style>
     
   </head>
@@ -225,19 +234,16 @@
 			<tr style="width: 100%"><td style="width: 35%;" align="left">BU Service :</td><td style="width: 65%;" align="left"> <div id="setbuservice"></div></td></tr>
 			<tr style="width: 100%"><td style="width: 35%;" align="left">Project :</td><td style="width: 65%;" align="left"> <div id="setproject"></div></td></tr>
 			<tr style="width: 100%"><td style="width: 35%;" align="left">Location :</td><td style="width: 65%;" align="left"> <div id="setlocation"></div></td></tr>
-			<tr style="width: 100%"><td style="width: 35%;" align="left">Comment :</td><td style="width: 65%;" align="left"><textarea id="icomment" style="height:35px"></textarea></td></tr>
+			<tr style="width: 100%"><td style="width: 35%;" align="left">Comment History :</td><td style="width: 65%;" align="left"> <div style="color: blue;" onclick="getComentHistory()">View</div><div id="viewCmtHist"></div>	</td></tr>
+			<tr style="width: 100%"><td style="width: 35%;" align="left">*&nbsp;Comment : </td><td style="width: 65%;" align="left"><textarea id="icomment"  rows="5" cols="100"></textarea></td></tr>
+			<tr style="width: 100%"><td style="width: 35%;" align="left">*&nbsp;Mail Id :</td><td style="width: 65%;" align="left"><input id="cmtrMail" name="cmtrMail" size="25" maxlength="20" >&nbsp;@capgemini.com</td></tr>
 			<tr style="width: 100%"><td style="width: 35%;" align="left"></td><td style="width: 65%;" align="left"><input type="button" onclick="commentIdea()" value="Submit Comment"></td></tr>			
 	</table>
+	<input type="hidden" id="hidideaid" name="hidideaid"/>	
 	</div>
-	<!-- <div style="float: left;margin-left: 3%;margin-top: 3%;">
-	<table>
-	<tr><textarea id="icomment"></textarea></tr><br>
-	<tr><input type="button" onclick="commentIdea()" value="Submit Comment"></tr>
-	</table>
-	</div>	 -->		  
 </div>
             <!-- Start Pagination -->
-			<span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span>
+			<!-- <span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span> -->
         	<div id="paginationDivID">
 			    <nav aria-label="Page navigation">
 			        <ul class="pagination" id="paginationId"></ul>
@@ -254,17 +260,67 @@
           <aside id="sidebar" class="col-md-4 right-sidebar">
             <!-- Search Widget -->
             <div class="widget widget-search">
+            <h5 class="widget-title">Search Hackathons</h5>
               <form action="#">
-                <input class="form-control" type="search" placeholder="Start Searching..." />
-                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                <!-- <input class="form-control" type="search" placeholder="Start Searching..." /> -->
+                <div id="searchCriteria">
+                <div><input type="radio"  name="srccrta" id="srccrta" value="1" onclick="enableSearch(1)"/> By Vertical/Process</div>
+                <div><input type="radio"  name="srccrta" id="srccrta" value="2" onclick="enableSearch(2)"/> By Solution Title</div>
+                </div>
+                <div id="verprcssearch" style="display: none;">
+                 <select class="form-control" id="industry" name="industry">
+                    <option value="NA">Select...</option>
+                    <OPTION VALUE="BANKING">BANKING</OPTION>
+                    <OPTION VALUE="INSURANCE">INSURANCE</OPTION>
+                    <OPTION VALUE="HEALTHCARE">HEALTHCARE</OPTION>
+                    <OPTION VALUE="TELECOM">TELECOM</OPTION>
+                    <OPTION VALUE="EDUCATION">EDUCATION</OPTION>
+                    <OPTION VALUE="MANUFACTURING">MANUFACTURING</OPTION>
+                    <OPTION VALUE="TECHNOLOGY">TECHNOLOGY</OPTION>
+                    <OPTION VALUE="MEDIA">MEDIA</OPTION>
+                    <OPTION VALUE="FOOD AND BEVERAGE">FOOD AND BEVERAGE</OPTION>
+                    <OPTION VALUE="ELECTRONICS">ELECTRONICS</OPTION>
+                    <OPTION VALUE="FINANCIAL">FINANCIAL</OPTION>
+                    <OPTION VALUE="LEGAL">LEGAL</OPTION>
+                    <OPTION VALUE="AUTOMOTIVE">AUTOMOTIVE</OPTION>
+                    <OPTION VALUE="GOVERNMENT">GOVERNMENT</OPTION>
+                    <OPTION VALUE="ENGINEERING">ENGINEERING</OPTION>
+                    <OPTION VALUE="CONSUMER">CONSUMER</OPTION>
+                    <OPTION VALUE="MARKETING">MARKETING</OPTION>
+                  </select>
+                  
+                   <select class="form-control" id="funcarea" name="funcarea">
+                    <option value="NA">Select...</option>
+                    <option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
+                    <option value="MARKETING">MARKETING</option>
+                    <option value="PROMOTION">PROMOTION</option>
+                    <option value="PRODUCTION">PRODUCTION</option>
+                    <option value="SALES">SALES</option>
+                    <option value="CUSTOMER SERVICE SUPPORT">CUSTOMER SERVICE SUPPORT</option>
+                    <option value="ACCOUNTING AND FINANCE">ACCOUNTING AND FINANCE</option>
+                    <option value="DISTRIBUTION">DISTRIBUTION</option>
+                    <option value="RESEARCH AND DEVELOPMENT">RESEARCH AND DEVELOPMENT</option>
+                    <option value="ADMINISTRATIVE AND MANAGEMENT">ADMINISTRATIVE AND MANAGEMENT</option>
+                    <option value="OPERATIONS">OPERATIONS</option>
+                    <option value="INFORMATION TECHNOLOGY SUPPORT">INFORMATION TECHNOLOGY SUPPORT</option>
+                    <option value="PURCHASING">PURCHASING</option>
+                    <option value="LEGAL DEPARTMENT">LEGAL DEPARTMENT</option>
+                    </select>
+               </div>
+                 <div id="namesearch" style="display: none;">
+                 <input class="form-control" type="text" placeholder="Solution Title..." id="namearea" />
+                 </div>
+                
+                <a href="#" class="search-btn" onclick="searchIdeas()"><i class="fa fa-search"></i></a>
               </form>
             </div>            
 
             <!-- Popular Posts widget -->
             <div class="widget widget-popular-posts">
-            <h5 class="widget-title">Top Hackathons</h5>
-              <ul class="posts-list">
-                <li>
+            <div id="postSearchDiv">  </div>
+              <!-- <ul class="posts-list">
+               
+                 <li>
                   <div class="widget-thumb">
                     <a href="#"><img src="./assets/img/blog/p1.jpg" alt="" /></a>
                   </div>
@@ -275,110 +331,11 @@
                   </div>
                   <div class="clearfix"></div>
                 </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p2.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon2</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Insurance</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p3.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon3</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Payments</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p4.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon4</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>TGIW</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p5.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon5</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Campus</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p1.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon6</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Banking</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p2.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon7</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Insurance</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p3.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon8</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Payments</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p4.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon9</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>TGIW</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-                <li>
-                  <div class="widget-thumb">
-                    <a href="#"><img src="./assets/img/blog/p5.jpg" alt="" /></a>
-                  </div>
-                  <div class="widget-content">
-                    <a href="#">Hackathon10</a>
-                    <span><i class="icon-calendar"></i>2016/10/28</span>
-                    <span><i class="icon-folder"></i>Campus</span>
-                  </div>
-                  <div class="clearfix"></div>
-                </li>
-              </ul>
+              </ul> -->
             </div>
 
             <!-- Categories Widget -->
-            <div class="widget widget-categories">
+           <!--  <div class="widget widget-categories">
               <h5 class="widget-title">Categories</h5>
               <ul class="cat-list">
                 <li>
@@ -406,7 +363,7 @@
                   <span class="num-posts">17</span>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </aside>
           <!--End sidebar-->
         </div>
@@ -463,10 +420,10 @@
     <section id="copyright">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" >
             <p class="copyright-text text-center">
              ©Designed and Developed by 
-              <a href="http://graygrids.com/">
+              <a href="#">
                 Hackathon Team
               </a>
             </p>
@@ -620,6 +577,7 @@
     function openDetails(data,data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19){
     	
     	document.getElementById("setideaid").innerHTML = data;
+    	document.getElementById("hidideaid").value = data;
     	document.getElementById("setprob").innerHTML = data1;
     	document.getElementById("setindustry").innerHTML = data2;
     	document.getElementById("setareaoffunc").innerHTML = data3;
@@ -650,6 +608,99 @@
     	
     }
     
+    function getComentHistory(){
+ 		var id = document.getElementById("hidideaid").value;
+     	var appstr = "<table>";
+     	$.ajax({url: "/iComments/"+id,
+         	success: function (data) {
+         		for(var i=0;i<data.length;i++){
+         			appstr += '<tr><td class="cmtClass">'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr>';
+         		}
+         		appstr+="</table>";
+         		document.getElementById("viewCmtHist").innerHTML = appstr;
+         		
+         	},error: function (e) {
+             	alert("Error in Comment History   "+e.error);
+             }
+     	});
+     	
+     }
+     
+     
+     function enableSearch(val){
+     	if(val == "1"){
+     	document.getElementById("verprcssearch").style.display = "block";
+     	document.getElementById("namesearch").style.display = "none";
+     	}else if(val == "2"){
+     	document.getElementById("namesearch").style.display = "block";
+     	document.getElementById("verprcssearch").style.display = "none";
+     	}
+     }
+     
+     function searchIdeas(){
+     	
+     	var resturl = getSearchUrl();
+     	if(resturl != "NA"){
+     	var srchUrl = "/idea/search/"+resturl;
+     	$.ajax({url: srchUrl,
+         	success: function (valueAr) {
+         		var totalSearchArea = '<ul class="posts-list">';
+         		 for(var i=0;i<valueAr.length;i++){
+         			var value = valueAr[i];
+         			var formSearchArea = '<li><div class="widget-thumb"><div class="widget-thumb"><a href="#"><img src="./assets/img/blog/p1.jpg" alt="" /></a></div> <div class="widget-content">';
+         			formSearchArea += '<a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenefit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\',\''+value.buInvest+'\',\''+value.buIncome+'\',\''+value.itype+'\')">'+value.solnTitle+'</a>';
+         			formSearchArea += '</div><div class="clearfix"></div></li>';   
+         			
+         			totalSearchArea += formSearchArea;
+         		}
+         		 
+         		 totalSearchArea += '</ul>';
+         		 
+         		 $("#postSearchDiv").html("");
+         		 $("#postSearchDiv").append(totalSearchArea);
+         		 
+         		 totalSearchArea = "";formSearchArea = "";
+         		 
+         	},error: function (e) {
+             	alert("Error in Searching   "+e.error);
+             }
+     	});
+     	}
+     }
+     
+     function getSearchUrl(){
+     	
+     	var radios = document.getElementsByName("srccrta");
+     	var selOpt = "NA";
+     	
+     	for (var i = 0; i < radios.length; i++) {
+     	    if (radios[i].checked) {
+     	        selOpt = radios[i].value;
+     	        break;
+     	    }
+     	}
+     	
+     	var url = "NA";
+     	if(selOpt == "1"){
+     		
+    		var verid = document.getElementById("industry").value;
+        	var funid = document.getElementById("funcarea").value;
+     		
+     	if(verid != "NA" && funid == "NA"){
+     		url = "vertical/"+verid;
+     	}else if(funid != "NA" && verid == "NA"){
+     		url = "process/"+funid;
+     	}else if(verid != "NA" && funid != "NA"){
+     		url = "verprocs/"+verid+"/"+funid;
+     	}
+     	}else if(selOpt == "2" && soltitl != ""){
+     		var soltitl = document.getElementById("namearea").value;
+     		url = "soltitle/"+soltitl;
+     	}
+     	
+     	return url;
+     }
+    
     function closeDetails(){
     	document.getElementById("detailsNav").style.width = "0%";
     	document.getElementById("detailsNav").style.display = "none";
@@ -657,14 +708,17 @@
     	document.getElementById("headerdiv").style.display = "block";
     	document.getElementById("postdiv").style.display = "block";
     	document.getElementById("paginationDivID").style.display = "block";
+    	
+    	document.getElementById("viewCmtHist").innerHTML = "";
     }
     
     function commentIdea(){
     	var token = $('#_csrf').attr('content');
     	var header = $('#_csrf_header').attr('content');
-    	var comment = $("#icomment").val();
+    	var comment = $.trim($("#icomment").val());
     	var ideaId = $("#setideaid").text();
-    	if(comment != '' && comment != null){
+    	var cmtBy = $.trim($("#cmtrMail").val());
+    	if((comment != '' && comment != null) || (cmtBy != '' && cmtBy != null)){
     		$.ajax({
                 type: "POST",
                 url: "/commentIdea",
@@ -674,7 +728,7 @@
                 data: {
                 	ideaId:ideaId,
                 	comment:comment,
-                	commentedBy:'Admin'
+                	commentedBy:cmtBy
                 },
                 timeout: 600000,
                 success: function (data, textStatus, xhr) {
@@ -688,7 +742,7 @@
                 }
     		});
     	}else{
-    		alert("Enter some comments to Submit");
+    		alert("Please fill out the mandatory fields indicated with * ");
     	}
     }
     

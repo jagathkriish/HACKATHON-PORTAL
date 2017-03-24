@@ -33,7 +33,7 @@ public class CommentController {
 			@RequestParam String commentedBy) {
 		try {
 			Idea idea = ideaRepository.findOneById(ideaId);
-			Stream<Comments> comments = Stream.of(new Comments(idea, comment, commentedBy));
+			Stream<Comments> comments = Stream.of(new Comments(idea, comment, commentedBy.concat("@capgemini.com")));
 			comments.forEach(commentsRepository::save);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

@@ -20,4 +20,12 @@ public interface IdeaRepository extends PagingAndSortingRepository<Idea, Long>{
 	@Query("update Idea set rating = ?1, status = ?2 where profile_Id = ?3")
 	int rateIdea(float rating,String status, Long id);
 	Idea findOneById(Long id);
+	@Query("SELECT i from Idea i where i.industry like %?1%" )
+	List<Idea> getIdeasByVertical(String vertical);
+	@Query("SELECT i from Idea i where i.areaOfFunc like %?1%" )
+	List<Idea> getIdeasByProcess(String process);
+	@Query("SELECT i from Idea i where i.industry like %?1% and i.areaOfFunc like %?2% ")
+	List<Idea> getIdeasByVerPrcs(String industry, String process);
+	@Query("SELECT i from Idea i where i.solnTitle like %?1% ")
+	List<Idea> getIdeasByName(String soltitle);
 }

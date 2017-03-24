@@ -69,7 +69,7 @@ public class IdeaContoller {
 			videoFileName = new FileNameBuilder().generateFileName(ideaValidator.getVideoFile().getOriginalFilename(),ideaValidator.getCapId(),"v");
 		}
 		
-		if(!ideaValidator.getIndustry().equals(null)){
+		if(ideaValidator.getIndustry()!= null && ideaValidator.getIndustry().length != 0){
 			for(int i=0;i<ideaValidator.getIndustry().length;i++){
 				industry = industry+";"+ideaValidator.getIndustry()[i];
 			}
@@ -77,13 +77,23 @@ public class IdeaContoller {
 			industry = "NA";
 		}
 		
-		if(!ideaValidator.getFuncArea().equals(null)){
+		//check other industries if any
+ 		if(ideaValidator.getoIndustry() != null){
+ 			industry +=  ";"+ideaValidator.getoIndustry();
+ 		}
+		
+		if(ideaValidator.getFuncArea()!= null && ideaValidator.getFuncArea().length != 0){
 			for(int i=0;i<ideaValidator.getFuncArea().length;i++){
 				areaOfFunc = areaOfFunc+";"+ideaValidator.getFuncArea()[i];
 			}
 		}else{
 			areaOfFunc = "NA";
 		}
+		
+		//check other function area if any
+ 		if(ideaValidator.getoFuncArea() != null){
+ 			areaOfFunc +=  ";"+ideaValidator.getoFuncArea();
+ 		}
 		
 		if(!ideaValidator.getBuinvest().equals(null)){
 			buinvest = ideaValidator.getBuinvest();
@@ -103,7 +113,7 @@ public class IdeaContoller {
 		//Stream<Profile> profile = Stream.of(new Profile(ideaValidator.getCapId(),ideaValidator.getIdeaThonName(), ideaValidator.getCapEmail()));
 		//profile.forEach(profileRepository::save);
 		System.out.println(ideaValidator);
-		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getIdeaType(),ideaValidator.getProblemArea(), industry,areaOfFunc,ideaValidator.getTechnology(),ideaValidator.getSolnTitle(),ideaValidator.getSolnDesc(),ideaValidator.getBuBenift(),buinvest,buincome, docFileName,videoFileName,"NA",0));
+		Stream<Idea> ideas = Stream.of(new Idea(profileBean,ideaValidator.getIdeaType(),ideaValidator.getProblemArea(), industry,areaOfFunc,ideaValidator.getTechnology(),ideaValidator.getSolnTitle(),ideaValidator.getSolnDesc(),ideaValidator.getBuBenift(),buinvest,buincome, docFileName,videoFileName,"initial",0));
 		ideas.forEach(ideaRepository::save);
 
 		if(videoFileName != "NA"){
@@ -118,11 +128,15 @@ public class IdeaContoller {
 	}
 	
 	@PostMapping(value = "/rateIdea")
-	public ResponseEntity<?> rateIdea(@RequestParam String capId,@RequestParam Float rating,@RequestParam String status){
+	public ResponseEntity<?> rateIdea(@RequestParam String capId,@RequestParam Float exRtng,@RequestParam Float  rating,@RequestParam String status, @RequestParam String extSts){
 		Profile profile = profileRepository.findOneByCapId(capId);
-		System.out.println(profile);
-		int val = ideaRepository.rateIdea(rating, status, profile.getId());
-		System.out.println(val);
+		 		float finalRating = (exRtng + rating)/5;
+		 		//verify current status, if empty keep existing status as is
+		 		if(null == status || status.trim().equals("") || status.trim().equalsIgnoreCase("NA")){
+		 			status = extSts;
+		 		}
+		 		
+		 		int val = ideaRepository.rateIdea(finalRating, status.trim(), profile.getId());
 		if(val == 1){
 			return ResponseEntity.status(HttpStatus.OK).body(null);
 		}else{
