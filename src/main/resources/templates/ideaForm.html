@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
-  
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,6 +55,7 @@
                   <span><i class="icon-phone"></i> 040 2312 6000</span>
                   <!-- <span><i class="icon-envelope"></i><a href="#"><span class="__cf_email__" data-cfemail="13767e727a7f53747e727a7f3d707c7e">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a></span> -->
                   <span><i class="icon-envelope"></i><a href="#">hr@capgemini.com</a></span>
+                  Welcome: <span sec:authentication="name">USER</span>
               </div>
               <!-- Quick Contacts End -->
             </div>
@@ -93,7 +96,8 @@
                 <li><a href="ideaList">Ideas</a></li>             
                 <li class="active animated bounceIn"><a href="submitIdea">Submit Idea</a></li>                
                 <li><a href="contact">Contact</a></li> 
-                <li><a href="javascript: document.logoutForm.submit()">Logout</a></li>               
+               <li><a href="javascript: document.logoutForm.submit()"
+								sec:authorize="isAuthenticated()">Logout</a></li>               
               </ul>
             </div><!-- /navbar-collapse -->
           </div><!-- /container -->
@@ -115,7 +119,8 @@
             <li ><a href="blog">Blog</a></li>             
             <li class="active"><a href="submitIdea">Submit Idea</a></li>                
             <li><a href="contact">Contact</a></li> 
-            <li><a href="javascript: document.logoutForm.submit()">Logout</a></li>
+            <li><a href="javascript: document.logoutForm.submit()"
+								sec:authorize="isAuthenticated()">Logout</a></li>
            </ul>
           <!-- Mobile Menu End -->
 

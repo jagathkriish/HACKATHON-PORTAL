@@ -28,4 +28,9 @@ public interface IdeaRepository extends PagingAndSortingRepository<Idea, Long>{
 	List<Idea> getIdeasByVerPrcs(String industry, String process);
 	@Query("SELECT i from Idea i where i.solnTitle like %?1% ")
 	List<Idea> getIdeasByName(String soltitle);
+	
+	List<Idea> getIdeasBySolnTitleLike(String soltitle);
+	List<Idea> getIdeasByareaOfFuncLike(String areaOfFunc);
+	List<Idea> getIdeasByIndustryLike(String industry);
+	List<Idea> getIdeasByIndustryLikeAndAreaOfFuncLike(String soltitle,String areaOfFunc);
 }

@@ -9,14 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.vv.model.IdeaValidator;
+import com.vv.repositories.CommentRepository;
 import com.vv.service.EmailService;
 
 @Controller
 public class AppRouter {
 	@Autowired
 	private EmailService emailService;
+	private CommentRepository commentRepository;
+	public AppRouter(CommentRepository commentRepository){
+		this.commentRepository = commentRepository;
+	}
 
 	@GetMapping("/")
     public String Main() throws MessagingException {
@@ -80,10 +86,17 @@ public class AppRouter {
         return scheduleTemplateName;
     }
 	
-	@GetMapping("/singleView")
-    public String singlePostPage() {
+	@GetMapping("/singleView/{ideaId}")
+    public String singlePostPage(Model model,@PathVariable String ideaId) {
 		String singlePostTemplateName = "singleView";
+		model.addAttribute("comments", commentRepository.findByideaId(Long.parseLong(ideaId)));
         return singlePostTemplateName;
+    }
+	
+	@GetMapping("/comtest/{ideaId}")
+    public String comTest(Model model,@PathVariable String ideaId) {
+		model.addAttribute("comments", commentRepository.findByideaId(Long.parseLong(ideaId)));
+        return "commentTest";
     }
 	
 	@GetMapping("/speakers")
