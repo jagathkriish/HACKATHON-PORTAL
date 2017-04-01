@@ -39,7 +39,10 @@
     <![endif]-->
   </head>
   <body>
-
+  <form name="logoutForm" th:action="@{/logout}" method="post"
+						th:hidden="true">
+						<input type="submit" value="Sign Out" />
+  </form>
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
       <!-- Roof area Starts -->
