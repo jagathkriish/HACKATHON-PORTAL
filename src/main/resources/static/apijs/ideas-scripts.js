@@ -147,6 +147,7 @@
      	var srchUrl = baseurl+"/idea/search/"+resturl;
      	$.ajax({url: srchUrl,
          	success: function (valueAr) {
+         		if(valueAr.length != 0){
          		var totalSearchArea = '<ul class="posts-list">';
          		 for(var i=0;i<valueAr.length;i++){
          			var value = valueAr[i];
@@ -162,8 +163,11 @@
          		 $("#postSearchDiv").html("");
          		 $("#postSearchDiv").append(totalSearchArea);
          		 
-         		 totalSearchArea = "";formSearchArea = "";
+         		}else{
+         			$("#postSearchDiv").html("No results found for your Query.Try a different query ?");
+         		}
          		 
+         		totalSearchArea = "";formSearchArea = "";
          	},error: function (e) {
              	alert("Error in Searching   "+e.error);
              }

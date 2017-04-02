@@ -17,11 +17,12 @@ import com.vv.service.EmailService;
 
 @Controller
 public class AppRouter {
-	@Autowired
+	
 	private EmailService emailService;
 	private CommentRepository commentRepository;
-	public AppRouter(CommentRepository commentRepository){
+	public AppRouter(CommentRepository commentRepository,EmailService emailService){
 		this.commentRepository = commentRepository;
+		this.emailService = emailService;
 	}
 
 	@GetMapping("/")
@@ -39,7 +40,7 @@ public class AppRouter {
 	@GetMapping("/email")
     public String emailPage() throws MessagingException {
 		//emailService.sendTextMail("venkatesh", "venkat.kristipati@gmail.com", new Locale("en_US"));
-		emailService.sendTextMail("venkatesh", "venkat.kristipati@gmail.com", new Locale("fr"));
+		emailService.sendTextMail("jagathpathi", "jagath143145@gmail.com", new Locale("fr"));
         return "index";
     }
 	
@@ -129,16 +130,10 @@ public class AppRouter {
         return "editable";
     }
 	
-	/*@GetMapping("/hello")
-    public String E404Page() {
-		String error404Page = "404";
-        return error404Page;
-    }*/
-	
-	/*@GetMapping("/old")
-    public String viewHomePage(Model model) throws IOException {
-		String baseTemplateName = "EnterExpenses";
-        return baseTemplateName;
-    }*/
+	@GetMapping("/single-post")
+    public String singleView() {
+		String ideasTemplateName = "error/maintenance";
+        return ideasTemplateName;
+    }
 	
 }

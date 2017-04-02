@@ -26,10 +26,7 @@ import com.vv.config.AppProperties;
 public class Application {
 	
 	private Logger log = LoggerFactory.getLogger(Application.class);
-		
-	//@Autowired
 	private AppProperties properties;
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
