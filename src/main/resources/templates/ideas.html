@@ -52,8 +52,8 @@
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: white;
+	background-color: white;
 	overflow-x: hidden;
 	transition: 0.5s;
 	direction: ltr;
@@ -92,6 +92,8 @@
 	border: 1px solid #000000;
 	word-wrap: break-word;
 	border-color: white;
+	box-shadow: 10px;
+	background-color: skyblue;
 }
 </style>
 
@@ -144,7 +146,7 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index">Home</a></li>
-							<li class="dropdown"><a class="dropdown-toggle"
+							<!-- <li class="dropdown"><a class="dropdown-toggle"
 								data-toggle="dropdown" href="#">Pages <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li><a href="about">About Us</a></li>
@@ -152,7 +154,7 @@
 									<li><a href="submitIdea">Submit Idea</a></li>
 									<li><a href="sponsors">Sponsors</a></li>
 									<li><a href="single-post">Single Post</a></li>
-								</ul></li>
+								</ul></li> -->
 							<li><a href="schedule">Schedule</a></li>
 							<li><a href="speakers">Speakers</a></li>
 							<li class="active"><a href="ideaList">Ideas</a></li>
@@ -225,9 +227,16 @@
 						<input type="submit" value="Sign Out" />
 					</form>
 					<div id="detailsNav" class="overlay"
-						style="background-color: lightgreen; display: none; overflow: scroll">
-						<a href="javascript:void(0)" class="closebtn"
-							onclick="closeDetails()">&times;</a>
+						style=" display: none; overflow: scroll">
+						
+				<h1  align="center" data-wow-delay="300ms" style="color: white;background-color: black;height: 15%;">
+					View Idea Details
+				<a href="javascript:void(0)" class="closebtn"
+							onclick="closeDetails()" style="position: absolute;">&times;</a>
+					</h1>
+						
+						
+							
 						<div style="margin-left: 3%; margin-top: 3%; float: left">
 							<table>
 								<tr style="width: 100%">
@@ -366,10 +375,13 @@
 									<td style="width: 65%;" align="left"><input id="cmtrMail"
 										name="cmtrMail" size="25" maxlength="20">&nbsp;@capgemini.com</td>
 								</tr>
+								<tr><td>&nbsp;</td></tr>
 								<tr style="width: 100%">
 									<td style="width: 35%;" align="left"></td>
-									<td style="width: 65%;" align="left"><input type="button"
-										onclick="commentIdea()" value="Submit Comment"></td>
+									<td style="width: 65%;" align="left">
+									 <input type="button" onclick="commentIdea()" class="btn btn-primary form-control" value="Please submit your comment here" > 
+										
+										</td>
 								</tr>
 							</table>
 							<input type="hidden" id="hidideaid" name="hidideaid" />

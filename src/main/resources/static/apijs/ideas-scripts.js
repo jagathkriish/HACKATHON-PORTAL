@@ -113,13 +113,13 @@
     
     function getComentHistory(){
  		var id = document.getElementById("hidideaid").value;
-     	var appstr = "<table>";
+     	var appstr = "<table><tr><td>";
      	$.ajax({url: baseurl+"/iComments/"+id,
          	success: function (data) {
          		for(var i=0;i<data.length;i++){
-         			appstr += '<tr><td class="cmtClass">'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr>';
+         			appstr += '<table class="cmtClass"><tr><td>'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr></table>';
          		}
-         		appstr+="</table>";
+         		appstr+="</tr></td></table>";
          		document.getElementById("viewCmtHist").innerHTML = appstr;
          		
          	},error: function (e) {
