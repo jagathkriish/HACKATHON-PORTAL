@@ -52,7 +52,8 @@ public class AppRouter {
 	
 	@GetMapping("/blog")
     public String blogPage() {
-		String blogTemplateName = "blog";
+		//String blogTemplateName = "blog";
+		String blogTemplateName = "error/maintenance";
         return blogTemplateName;
     }
 	

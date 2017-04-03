@@ -16,7 +16,7 @@ public class Profile implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String capName;
-	@Column(unique=true)
+	//@Column(unique=true)
 	private String capId;
 	private String capEmail;
 	private String phone;
