@@ -137,4 +137,9 @@ public class AppRouter {
         return ideasTemplateName;
     }
 	
+	@GetMapping("/idashboard")
+    public String dashBoardView() {
+        return "idashboard";
+    }
+	
 }

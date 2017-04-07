@@ -27,6 +27,12 @@ public class IdeaRestController {
 		return ideaRepository.findAll(pageable);
 	}
 	
+	@GetMapping("/apvdIdeaPages")
+	Page<Idea> listAllApprovedIdeasByPage(Pageable pageable) {
+		System.out.println("In 1 >>> ");
+		return ideaRepository.findAllApprovedIdeas(pageable);
+	}
+	
 	@GetMapping("/ideaFiles")
 	List<Object> listIdeaFilesByPage(Pageable pageable) {
 		return ideaRepository.getIdeaFiles(pageable);

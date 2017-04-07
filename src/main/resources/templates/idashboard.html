@@ -95,6 +95,8 @@
 	box-shadow: 10px;
 	background-color: skyblue;
 }
+
+
 </style>
 
 </head>
@@ -157,11 +159,11 @@
 								</ul></li> -->
 							<li><a href="schedule">Schedule</a></li>
 							<li><a href="speakers">Speakers</a></li>
-							<li class="active"><a href="ideaList">Ideas</a></li>
+							<li ><a href="ideaList">Ideas</a></li>
 							<li class="animated bounceIn"><a href="submitIdea">SUBMIT
 									IDEA</a></li>
 							<li><a href="contact">Contact</a></li>
-							<li><a href="idashboard">Dashboard</a></li>
+							<li class="active"><a href="idashboard">Dashboard</a></li>
 							<li><a href="javascript: document.logoutForm.submit()"
 								sec:authorize="isAuthenticated()">Logout</a></li>
 						</ul>
@@ -204,10 +206,10 @@
 			<div class="page-header-inner">
 				<ol class="breadcrumb wow fadeInDown" data-wow-delay="300ms">
 					<li><a href="index">Home</a></li>
-					<li class="page">Ideas</li>
+					<li class="page">Dashboard</li>
 				</ol>
 				<h1 class="page-title wow fadeInRight" data-wow-delay="300ms">
-					ideas</h1>
+					Contribute</h1>
 			</div>
 		</div>
 	</div>
@@ -227,6 +229,7 @@
 						th:hidden="true">
 						<input type="submit" value="Sign Out" />
 					</form>
+					
 					<div id="detailsNav" class="overlay"
 						style=" display: none; overflow: scroll">
 						
@@ -236,6 +239,7 @@
 							onclick="closeDetails()" style="position: absolute;">&times;</a>
 					</h1>
 						
+			
 						
 							
 						<div style="margin-left: 3%; margin-top: 3%; float: left">
@@ -366,28 +370,184 @@
 										<div id="viewCmtHist"></div>
 									</td>
 								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">*&nbsp;Comment :</td>
-									<td style="width: 65%;" align="left"><textarea
-											id="icomment" rows="5" cols="100"></textarea></td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">*&nbsp;Mail Id :</td>
-									<td style="width: 65%;" align="left"><input id="cmtrMail"
-										name="cmtrMail" size="25" maxlength="20">&nbsp;@capgemini.com</td>
-								</tr>
-								<tr><td>&nbsp;</td></tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left"></td>
-									<td style="width: 65%;" align="left">
-									 <input type="button" onclick="commentIdea()" class="btn btn-primary form-control" value="Please submit your comment here" > 
-										
-										</td>
-								</tr>
+								
 							</table>
 							<input type="hidden" id="hidideaid" name="hidideaid" />
 						</div>
 					</div>
+					
+					<form role="form"  method="post" action="#">	
+					<div id="contributeNav" class="overlay"
+						style=" display: none; overflow: scroll">
+						
+				<h1  align="center" data-wow-delay="300ms" style="color: white;background-color: black;height: 15%;">
+					Add Contribution Details
+				<a href="javascript:void(0)" class="closebtn"
+							onclick="closeContributeForm()" style="position: absolute;">&times;</a>
+					</h1>
+						<div class="container" id="searchCriteria" align="center" style="background-color: red">
+								<div style="background-color: white">
+									<input type="radio" name="srccrta" id="srccrta" value="1" 
+										onclick="enableContribute(1)" required /> By Individual
+								
+									<input type="radio" name="srccrta" id="srccrta" value="2"
+										onclick="enableContribute(2)" required /> By Team
+								</div>
+								<br/>
+							</div>
+					
+			<div class="container" >
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+				<table class="table-hover">
+				<tr><td> <font color="skyblue" size="5">Timeline to complete in </font> </td><td><input type="text" name='timeline' required placeholder="...months" maxlength="2" />&nbsp;months.</td></tr>
+				<tr><td> <font color="skyblue" size="5">Team Name :</font> </td><td><input type="text" name='timeline' required maxlength="35" /></td></tr>
+				</table>
+				</div>
+				</div>
+			</div>				
+						
+			<div class="container" >
+		    <div class="row clearfix">
+		    
+		    	<div class="col-md-12 column" id="contributeIndi" style="display: none;">
+		    	<!-- <form role="form"  method="post" action="#">	 -->
+					<table class="table-hover" >
+						<thead style="background-color: skyblue;">
+							<tr >
+								<th class="text-center">
+									#
+								</th>
+								<th class="text-center">
+									&nbsp;
+								</th>
+								<th class="text-center">
+									Name
+								</th>
+								<th class="text-center">
+									Mail
+								</th>
+								<th class="text-center">
+									Project/Account
+								</th>
+								<th class="text-center">
+									Technologies( ; sep )
+								</th>
+								<th class="text-center">
+									Roles( ; sep )
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody >
+							<tr>
+								<td>
+								1
+								</td>
+								<td>
+								&nbsp;
+								</td>
+								<td>
+								<input type="text" name='nameIndi' required placeholder='Name' class="form-control" />
+								</td>
+								<td>
+								<input type="text" name='mailIndi' required placeholder='Mail' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='projectIndi' required placeholder='Project/Account' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='techIndi' required placeholder='Technologies' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='roleIndi' required placeholder='Role' class="form-control"/>
+								</td>
+							</tr>
+						</tbody>
+					
+					</table>
+					<div align="center">
+					<button type="submit" id="contribute_btn_indi" class=" btn btn-common "  >Individual Contribution!</button>
+					</div>
+					<!-- </form>	 -->
+				</div>
+		    
+				<div class="col-md-12 column" id="contributeTeam" style="display: none;">
+					<!-- <form role="form"  method="post" action="#"> -->
+					<table class="table-hover" id="tab_logic" >
+						<thead style="background-color: skyblue;">
+							<tr >
+								<th class="text-center">
+									#
+								</th>
+								<th class="text-center">
+									&nbsp;
+								</th>
+								<th class="text-center">
+									Name
+								</th>
+								<th class="text-center">
+									Mail
+								</th>
+								<th class="text-center">
+									Project/Account
+								</th>
+								<th class="text-center">
+									Technologies( ; sep )
+								</th>
+								<th class="text-center">
+									Roles( ; sep )
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody >
+							<tr id='addr0'>
+								<td>
+								1
+								</td>
+								<td>
+								&nbsp;
+								</td>
+								<td>
+								<input type="text" name='name0' required placeholder='Name' class="form-control" />
+								</td>
+								<td>
+								<input type="text" name='mail0' required placeholder='Mail' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='project0' required placeholder='Project/Account' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='tech0' required placeholder='Technologies' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='role0' required placeholder='Role' class="form-control"/>
+								</td>
+								<td>
+								<button type="button" id="add_row" style="display: none;" class=" btn-success btn-sm ">+</button>
+								</td>
+								<td>
+								<button type="button" id='delete_row' style="display: none;" class="btn-danger btn-sm">-</button>
+								</td>
+							</tr>
+		                    <tr id='addr1'></tr>
+						</tbody>
+					
+					</table>
+					<div align="center">
+					<button type="submit" id="contribute_btn_team" class=" btn btn-common " style="">Team Contribution!</button>
+					</div>
+					<!-- </form> -->
+				</div>
+		</div>
+			
+		</div>
+					
+						
+					</div>
+					</form>
+					
 					<!-- Start Pagination -->
 					<span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span>
 					<div id="paginationDivID">
@@ -401,7 +561,6 @@
 
 
 
-
 				<!--Sidebar-->
 				<aside id="sidebar" class="col-md-4 right-sidebar">
 					<!-- Search Widget -->
@@ -409,64 +568,19 @@
 						<h5 class="widget-title">Search Hackathons</h5>
 						<form action="#">
 							<!-- <input class="form-control" type="search" placeholder="Start Searching..." /> -->
-							<div id="searchCriteria">
-								<div>
-									<input type="radio" name="srccrta" id="srccrta" value="1"
-										onclick="enableSearch(1)" /> By Vertical/Process
-								</div>
-								<div>
-									<input type="radio" name="srccrta" id="srccrta" value="2"
-										onclick="enableSearch(2)" /> By Solution Title
-								</div>
+							
+							<div id="ssearch" >
+								<select class="form-control" id="istatus" name="istatus">
+									<OPTION value="NA">Select...</OPTION>
+									<OPTION VALUE="initial">INITIAL</OPTION>
+									<OPTION VALUE="assign">ASSIGN</OPTION>
+									<OPTION VALUE="review">REVIEW</OPTION>
+									<OPTION VALUE="publish">PUBLISH</OPTION>
+									<OPTION VALUE="reject">REJECT</OPTION>
+									<OPTION VALUE="onhold">ON-HOLD</OPTION>
+									<OPTION VALUE="approve">APPROVE</OPTION>
+								</select> 
 							</div>
-							<div id="verprcssearch" style="display: none;">
-								<select class="form-control" id="industry" name="industry">
-									<option value="NA">Select...</option>
-									<OPTION VALUE="BANKING">BANKING</OPTION>
-									<OPTION VALUE="INSURANCE">INSURANCE</OPTION>
-									<OPTION VALUE="HEALTHCARE">HEALTHCARE</OPTION>
-									<OPTION VALUE="TELECOM">TELECOM</OPTION>
-									<OPTION VALUE="EDUCATION">EDUCATION</OPTION>
-									<OPTION VALUE="MANUFACTURING">MANUFACTURING</OPTION>
-									<OPTION VALUE="TECHNOLOGY">TECHNOLOGY</OPTION>
-									<OPTION VALUE="MEDIA">MEDIA</OPTION>
-									<OPTION VALUE="FOOD AND BEVERAGE">FOOD AND BEVERAGE</OPTION>
-									<OPTION VALUE="ELECTRONICS">ELECTRONICS</OPTION>
-									<OPTION VALUE="FINANCIAL">FINANCIAL</OPTION>
-									<OPTION VALUE="LEGAL">LEGAL</OPTION>
-									<OPTION VALUE="AUTOMOTIVE">AUTOMOTIVE</OPTION>
-									<OPTION VALUE="GOVERNMENT">GOVERNMENT</OPTION>
-									<OPTION VALUE="ENGINEERING">ENGINEERING</OPTION>
-									<OPTION VALUE="CONSUMER">CONSUMER</OPTION>
-									<OPTION VALUE="MARKETING">MARKETING</OPTION>
-								</select> <select class="form-control" id="funcarea" name="funcarea">
-									<option value="NA">Select...</option>
-									<option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
-									<option value="MARKETING">MARKETING</option>
-									<option value="PROMOTION">PROMOTION</option>
-									<option value="PRODUCTION">PRODUCTION</option>
-									<option value="SALES">SALES</option>
-									<option value="CUSTOMER SERVICE SUPPORT">CUSTOMER
-										SERVICE SUPPORT</option>
-									<option value="ACCOUNTING AND FINANCE">ACCOUNTING AND
-										FINANCE</option>
-									<option value="DISTRIBUTION">DISTRIBUTION</option>
-									<option value="RESEARCH AND DEVELOPMENT">RESEARCH AND
-										DEVELOPMENT</option>
-									<option value="ADMINISTRATIVE AND MANAGEMENT">ADMINISTRATIVE
-										AND MANAGEMENT</option>
-									<option value="OPERATIONS">OPERATIONS</option>
-									<option value="INFORMATION TECHNOLOGY SUPPORT">INFORMATION
-										TECHNOLOGY SUPPORT</option>
-									<option value="PURCHASING">PURCHASING</option>
-									<option value="LEGAL DEPARTMENT">LEGAL DEPARTMENT</option>
-								</select>
-							</div>
-							<div id="namesearch" style="display: none;">
-								<input class="form-control" type="text"
-									placeholder="Solution Title..." id="namearea" />
-							</div>
-
 							<a href="#" class="search-btn" onclick="searchIdeas()"><i
 								class="fa fa-search"></i></a>
 						</form>
@@ -599,6 +713,7 @@
 	<script src="./assets/js/jquery.min.js"></script>
 	<!-- Bootstrap JS -->
 	<script src="./assets/js/bootstrap.min.js"></script>
+	
 	<!-- Countdown Js -->
 	<script src="./assets/js/jquery.countdown.min.js"></script>
 	<!-- Smooth scroll JS -->
@@ -625,5 +740,5 @@
 	<script src="./assets/js/moment.js"></script>
 	<script src="./assets/js/jquery.rateyo.min.js"></script>
 	<script src="./apijs/api-properties.js"></script>
-	<script src="./apijs/ideas-scripts.js"></script>
+	<script src="./apijs/ideasDash-scripts.js"></script>
 </body>

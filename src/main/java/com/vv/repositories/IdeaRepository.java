@@ -2,6 +2,7 @@ package com.vv.repositories;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +16,8 @@ public interface IdeaRepository extends PagingAndSortingRepository<Idea, Long>{
 	List<Idea> findAll();
 	@Query("SELECT documentName,videoName from Idea")
 	List<Object> getIdeaFiles(Pageable pageable);
+	@Query("SELECT i from Idea i where i.status = 'approve'")
+	Page<Idea> findAllApprovedIdeas(Pageable pageable);
 	@Transactional
 	@Modifying(clearAutomatically = true)
 	@Query("update Idea set rating = ?1, status = ?2 where profile_Id = ?3")
