@@ -43,6 +43,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+<style>
+.demo-card-wide.mdl-card {
+  width: 300px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 50px;
+  background-color	: #e91e63;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
 
 <style type="text/css">
 .overlay {
@@ -229,325 +243,6 @@
 						th:hidden="true">
 						<input type="submit" value="Sign Out" />
 					</form>
-					
-					<div id="detailsNav" class="overlay"
-						style=" display: none; overflow: scroll">
-						
-				<h1  align="center" data-wow-delay="300ms" style="color: white;background-color: black;height: 15%;">
-					View Idea Details
-				<a href="javascript:void(0)" class="closebtn"
-							onclick="closeDetails()" style="position: absolute;">&times;</a>
-					</h1>
-						
-			
-						
-							
-						<div style="margin-left: 3%; margin-top: 3%; float: left">
-							<table>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">ID :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setideaid"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Idea Type :</td>
-									<td style="width: 65%;" align="left"><div id="setItype"></div></td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Problem :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setprob"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Industry :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setindustry"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Area Of Function :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setareaoffunc"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Technology :</td>
-									<td style="width: 65%;" align="left">
-										<div id="settech"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Solution Title :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setsoltitle"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Solution Description
-										:</td>
-									<td style="width: 65%;" align="left">
-										<div id="setsoldesc"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Benifit :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbubenift"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Investment :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuinvest"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Income :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuincome"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Status :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setstatus"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Rating :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setrating"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Name :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapname"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Id :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapid"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Email :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapmail"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Phone :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setphone"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Service :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuservice"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Project :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setproject"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Location :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setlocation"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Comment History :</td>
-									<td style="width: 65%;" align="left">
-										<div style="color: blue;" onclick="getComentHistory()">View</div>
-										<div id="viewCmtHist"></div>
-									</td>
-								</tr>
-								
-							</table>
-							<input type="hidden" id="hidideaid" name="hidideaid" />
-						</div>
-					</div>
-					
-					<form role="form"  method="post" action="#">	
-					<div id="contributeNav" class="overlay"
-						style=" display: none; overflow: scroll">
-						
-				<h1  align="center" data-wow-delay="300ms" style="color: white;background-color: black;height: 15%;">
-					Add Contribution Details
-				<a href="javascript:void(0)" class="closebtn"
-							onclick="closeContributeForm()" style="position: absolute;">&times;</a>
-					</h1>
-						<div class="container" id="searchCriteria" align="center" style="background-color: red">
-								<div style="background-color: white">
-									<input type="radio" name="srccrta" id="srccrta" value="1" 
-										onclick="enableContribute(1)" required /> By Individual
-								
-									<input type="radio" name="srccrta" id="srccrta" value="2"
-										onclick="enableContribute(2)" required /> By Team
-								</div>
-								<br/>
-							</div>
-					
-			<div class="container" >
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-				<table class="table-hover">
-				<tr><td> <font color="skyblue" size="5">Timeline to complete in </font> </td><td><input type="text" name='timeline' required placeholder="...months" maxlength="2" />&nbsp;months.</td></tr>
-				<tr><td> <font color="skyblue" size="5">Team Name :</font> </td><td><input type="text" name='timeline' required maxlength="35" /></td></tr>
-				</table>
-				</div>
-				</div>
-			</div>				
-						
-			<div class="container" >
-		    <div class="row clearfix">
-		    
-		    	<div class="col-md-12 column" id="contributeIndi" style="display: none;">
-		    	<!-- <form role="form"  method="post" action="#">	 -->
-					<table class="table-hover" >
-						<thead style="background-color: skyblue;">
-							<tr >
-								<th class="text-center">
-									#
-								</th>
-								<th class="text-center">
-									&nbsp;
-								</th>
-								<th class="text-center">
-									Name
-								</th>
-								<th class="text-center">
-									Mail
-								</th>
-								<th class="text-center">
-									Project/Account
-								</th>
-								<th class="text-center">
-									Technologies( ; sep )
-								</th>
-								<th class="text-center">
-									Roles( ; sep )
-								</th>
-								
-							</tr>
-						</thead>
-						<tbody >
-							<tr>
-								<td>
-								1
-								</td>
-								<td>
-								&nbsp;
-								</td>
-								<td>
-								<input type="text" name='nameIndi' required placeholder='Name' class="form-control" />
-								</td>
-								<td>
-								<input type="text" name='mailIndi' required placeholder='Mail' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='projectIndi' required placeholder='Project/Account' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='techIndi' required placeholder='Technologies' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='roleIndi' required placeholder='Role' class="form-control"/>
-								</td>
-							</tr>
-						</tbody>
-					
-					</table>
-					<div align="center">
-					<button type="submit" id="contribute_btn_indi" class=" btn btn-common "  >Individual Contribution!</button>
-					</div>
-					<!-- </form>	 -->
-				</div>
-		    
-				<div class="col-md-12 column" id="contributeTeam" style="display: none;">
-					<!-- <form role="form"  method="post" action="#"> -->
-					<table class="table-hover" id="tab_logic" >
-						<thead style="background-color: skyblue;">
-							<tr >
-								<th class="text-center">
-									#
-								</th>
-								<th class="text-center">
-									&nbsp;
-								</th>
-								<th class="text-center">
-									Name
-								</th>
-								<th class="text-center">
-									Mail
-								</th>
-								<th class="text-center">
-									Project/Account
-								</th>
-								<th class="text-center">
-									Technologies( ; sep )
-								</th>
-								<th class="text-center">
-									Roles( ; sep )
-								</th>
-								
-							</tr>
-						</thead>
-						<tbody >
-							<tr id='addr0'>
-								<td>
-								1
-								</td>
-								<td>
-								&nbsp;
-								</td>
-								<td>
-								<input type="text" name='name0' required placeholder='Name' class="form-control" />
-								</td>
-								<td>
-								<input type="text" name='mail0' required placeholder='Mail' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='project0' required placeholder='Project/Account' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='tech0' required placeholder='Technologies' class="form-control"/>
-								</td>
-								<td>
-								<input type="text" name='role0' required placeholder='Role' class="form-control"/>
-								</td>
-								<td>
-								<button type="button" id="add_row" style="display: none;" class=" btn-success btn-sm ">+</button>
-								</td>
-								<td>
-								<button type="button" id='delete_row' style="display: none;" class="btn-danger btn-sm">-</button>
-								</td>
-							</tr>
-		                    <tr id='addr1'></tr>
-						</tbody>
-					
-					</table>
-					<div align="center">
-					<button type="submit" id="contribute_btn_team" class=" btn btn-common " style="">Team Contribution!</button>
-					</div>
-					<!-- </form> -->
-				</div>
-		</div>
-			
-		</div>
-					
-						
-					</div>
-					</form>
-					
 					<!-- Start Pagination -->
 					<span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span>
 					<div id="paginationDivID">
@@ -558,7 +253,6 @@
 					<!-- End Pagination -->
 				</div>
 				<!-- End Blog Posts -->
-
 
 
 				<!--Sidebar-->
@@ -641,6 +335,276 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
+	
+		<!-- idea view modal start-->
+		<div class="modal fade" id="ideaVcModal" role="dialog" hidden="true" data-backdrop="static" data-keyboard="false">
+		    <div class="modal-dialog modal-lg">
+		      <div class="modal-content">
+		        <div class="modal-header" style="background-color:#e91e63;">
+		          <button type="button" class="close" data-dismiss="modal" >&times;</button>
+		          <h4 class="modal-title" style="color:white;">View and Comment Idea</h4>
+		        </div>
+		        <div class="modal-body">
+		          <div class="table-responsive">          
+		              <table class="table">
+		                <tbody><tr>
+		                  <td>ID :</td>
+		                  <td id="setideaid"></td>
+		                </tr>
+		                <tr>
+		                  <td>Idea Type :</td>
+		                  <td id="setItype"></td>
+		                </tr>
+		                <tr>
+		                  <td>Problem :</td>
+		                  <td id="setprob"></td>
+		                </tr>
+		                <tr>
+		                  <td>Industry :</td>
+		                  <td id="setindustry"></td>
+		                </tr>
+		                <tr>
+		                  <td>Area Of Function :</td>
+		                  <td id="setareaoffunc"></td>
+		                </tr>
+		                <tr>
+		                  <td>Technology :</td>
+		                  <td id="settech"></td>
+		                </tr>
+		                <tr>
+		                  <td>Solution Title :</td>
+		                  <td id="setsoltitle"></td>
+		                </tr>
+		                <tr>
+		                  <td>Solution Description:</td>
+		                  <td id="setsoldesc"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Benifit :</td>
+		                  <td id="setbubenift"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Investment :</td>
+		                  <td id="setbuinvest"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Income :</td>
+		                  <td id="setbuincome"></td>
+		                </tr>
+		                <tr>
+		                  <td>Status :</td>
+		                  <td id="setstatus"></td>
+		                </tr>
+		                <tr>
+		                  <td>Rating :</td>
+		                  <td id="setrating"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Name :</td>
+		                  <td id="setcapname"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Id :</td>
+		                  <td id="setcapid"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Email :</td>
+		                  <td id="setcapmail"></td>
+		                </tr>
+		                <tr>
+		                  <td>Phone :</td>
+		                  <td id="setphone"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Service :</td>
+		                  <td id="setbuservice"></td>
+		                </tr>
+		                <tr>
+		                  <td>Project :</td>
+		                  <td id="setproject"></td>
+		                </tr>
+		                <tr>
+		                  <td>Location :</td>
+		                  <td id="setlocation"></td>
+		                </tr>
+		                <tr>
+		                  <td>Comment History :</td>
+		                  <td>
+		                    <div style="color: blue;" id="getComents">View</div>
+		                    <div id="CmtsDiv"></div>
+		                  </td>
+		                </tr>
+		                <tr>
+		                  <td>Comment :</td>
+		                  <td><textarea id="icomment" rows="5" cols="70"></textarea></td>
+		                </tr>
+		                <tr>
+		                  <td>Mail Id :</td>
+		                  <td><input id="cmtrMail" name="cmtrMail" size="25" maxlength="20">&nbsp;@capgemini.com</td>
+		                </tr>
+		                <tr>
+		                  <td></td>
+		                  <td>
+		                  <button onclick="commentIdea()" id="comment-submit" class="btn btn-common">Submit Comment <i class="fa fa-comments-o" aria-hidden="true"></i></button>
+		                    </td>
+		                </tr>
+		              </tbody>
+		            </table>
+		      </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-common" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		<input type="hidden" id="hidideaid" name="hidideaid" />
+		<!-- idea view modal end -->
+		
+		
+		<div class="modal fade" id="contribModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:#e91e63;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:white;">View and Comment Idea</h4>
+        </div>
+        <div class="modal-body">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#single">Single Contribution</a></li>
+                <li><a data-toggle="tab" href="#team">Team contribution</a></li>
+              </ul>
+  
+  <div class="tab-content">
+    <div id="single" class="tab-pane fade in active">
+     <br>
+  <div class="table-responsive">          
+  		<table class="table" id="tab_logic">
+						<thead style="background-color: skyblue;">
+							<tr >
+								<th class="text-center">
+									#
+								</th>
+								<th class="text-center">
+									Name
+								</th>
+								<th class="text-center">
+									Mail
+								</th>
+								<th class="text-center">
+									Project/Account
+								</th>
+								<th class="text-center">
+									Technologies( ; sep )
+								</th>
+								<th class="text-center">
+									Roles( ; sep )
+								</th>
+								
+							</tr>
+						</thead>
+						<tbody >
+							<tr>
+								<td>
+								<div class="form-control" style="background-color:#e91e63;color:#ffffff">1</div>
+								</td>
+								<td>
+								<input type="text" name='nameIndi' required placeholder='Name' class="form-control" />
+								</td>
+								<td>
+								<input type="text" name='mailIndi' required placeholder='Mail' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='projectIndi' required placeholder='Project/Account' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='techIndi' required placeholder='Technologies' class="form-control"/>
+								</td>
+								<td>
+								<input type="text" name='roleIndi' required placeholder='Role' class="form-control"/>
+								</td>
+							</tr>
+						</tbody>
+					
+					</table>
+					</div>
+
+    </div>
+    <div id="team" class="tab-pane fade">
+      <div class="table-responsive">          
+  		<table class="table" id="tab_logic">
+      <!-- <table class="table-hover" id="tab_logic"> -->
+            <thead>
+              <tr>
+                <th class="text-center">
+                  #
+                </th>
+                <th class="text-center">
+                  Name
+                </th>
+                <th class="text-center">
+                  Mail
+                </th>
+                <th class="text-center">
+                  Project/Account
+                </th>
+                <th class="text-center">
+                  Technologies(;sep)
+                </th>
+                <th class="text-center">
+                  Roles(;sep)
+                </th>
+                <th class="text-center">
+                  Add
+                </th>
+                <th class="text-center">
+                  Delete
+                </th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="addr0">
+                <td>
+                <div class="form-control" style="background-color:#e91e63;color:#ffffff">1</div>
+                </td>
+                <td>
+                <input type="text" name="name0" required="" placeholder="Name" class="form-control">
+                </td>
+                <td>
+                <input type="text" name="mail0" required="" placeholder="Mail" class="form-control">
+                </td>
+                <td>
+                <input type="text" name="project0" required="" placeholder="Project/Account" class="form-control">
+                </td>
+                <td>
+                <input type="text" name="tech0" required="" placeholder="Technologies" class="form-control">
+                </td>
+                <td>
+                <input type="text" name="role0" required="" placeholder="Role" class="form-control">
+                </td>
+                <td style="padding-top: 24px;">
+                <button type="button" id="add_row"  class=" btn-success btn-sm " >+</button>
+                </td>
+                <td style="padding-top: 24px;">
+                <button type="button" id="delete_row" class="btn-danger btn-sm">-</button>
+                </td>
+              </tr>
+                        <tr id="addr1"></tr>
+            </tbody>
+          
+          </table>
+          </div>
+    </div>
+  </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-common" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 	<!-- Footer Section Start -->
 	<footer class="section">

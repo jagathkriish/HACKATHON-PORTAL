@@ -1,4 +1,6 @@
-	alert("in dash board 3");
+	$("#getComents").click(function(){
+		$("#CmtsDiv").is(':empty') == 1 ? getComentHistory() : $("#CmtsDiv").empty();
+	});	
 	var $pagination = $('#paginationId');
     var defaultOpts = {
         totalPages: 20
@@ -35,7 +37,7 @@
     	 var rowCount=1;
        $("#add_row").click(function(){
         if( rowCount <= 4){
-    	   $('#addr'+rowCount).html("<td>"+ (rowCount+1) +"</td><td>&nbsp;</td><td><input name='name"+rowCount+"' type='text' required placeholder='Name' class='form-control input-md'  /> </td><td><input required name='mail"+rowCount+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input required name='project"+rowCount+"' type='text' placeholder='Project/Account'  class='form-control input-md'></td><td><input required type='text' name='tech"+rowCount+"' placeholder='Technologies' class='form-control'/></td><td><input required type='text' name='role"+rowCount+"' placeholder='Role' class='form-control'/></td>");
+    	   $('#addr'+rowCount).html("<td><div class='form-control' style='background-color:#e91e63;color:#ffffff'>"+ (rowCount+1) +"</div></td><td><input name='name"+rowCount+"' type='text' required placeholder='Name' class='form-control input-md'  /> </td><td><input required name='mail"+rowCount+"' type='text' placeholder='Mail'  class='form-control input-md'></td><td><input required name='project"+rowCount+"' type='text' placeholder='Project/Account'  class='form-control input-md'></td><td><input required type='text' name='tech"+rowCount+"' placeholder='Technologies' class='form-control'/></td><td><input required type='text' name='role"+rowCount+"' placeholder='Role' class='form-control'/></td>");
 
         $('#tab_logic').append('<tr id="addr'+(rowCount+1)+'"></tr>');
         rowCount++; 
@@ -50,11 +52,6 @@
   		 }
   	 });
        
-       
-     
-         
-     
-
   });
     
     
@@ -82,26 +79,15 @@
     	document.getElementById("setbuservice").innerHTML = data14;
     	document.getElementById("setproject").innerHTML = data15;
     	document.getElementById("setlocation").innerHTML = data16;
-    	document.getElementById("setItype").innerHTML = data19;
+    	$("#setItype").html(data19);
+    	$("#CmtsDiv").empty();
+    	$('#ideaVcModal').modal('show'); 
 
-    	
-    	document.getElementById("detailsNav").style.width = "100%";
-    	document.getElementById("detailsNav").style.display = "block";
-    	
-    	document.getElementById("headerdiv").style.display = "none";
-    	document.getElementById("postdiv").style.display = "none";
-    	document.getElementById("paginationDivID").style.display = "none";
-    	
     }
     
     function openContributeForm(data,data1,data2,data3,data4,data5,data6,data7,data8,data9,data10,data11,data12,data13,data14,data15,data16,data17,data18,data19){
     	
-    	document.getElementById("contributeNav").style.width = "100%";
-    	document.getElementById("contributeNav").style.display = "block";
-    	
-    	document.getElementById("headerdiv").style.display = "none";
-    	document.getElementById("postdiv").style.display = "none";
-    	document.getElementById("paginationDivID").style.display = "none";
+    	$('#contribModal').modal('show'); 
     	
     }
     
@@ -128,15 +114,18 @@
     
     function getComentHistory(){
  		var id = document.getElementById("hidideaid").value;
-     	var appstr = "<table><tr><td>";
+     	var appstr = "<table>";
      	$.ajax({url: baseurl+"/iComments/"+id,
          	success: function (data) {
+         	if(data.length !=0){
          		for(var i=0;i<data.length;i++){
-         			appstr += '<table class="cmtClass"><tr><td>'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr></table>';
+         			appstr += '<tr><td>'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr>';
          		}
-         		appstr+="</tr></td></table>";
-         		document.getElementById("viewCmtHist").innerHTML = appstr;
-         		
+         		appstr+="</table>";
+         		$("#CmtsDiv").html(appstr);
+         	}else{
+         		$("#CmtsDiv").html("No comments history found.Be the first to comment");
+         	}
          	},error: function (e) {
              	alert("Error in Comment History   "+e.error);
              }

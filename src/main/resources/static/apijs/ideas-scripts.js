@@ -1,3 +1,7 @@
+	$("#getComents").click(function(){
+		$("#CmtsDiv").is(':empty') == 1 ? getComentHistory() : $("#CmtsDiv").empty();
+	});
+
 	var $pagination = $('#paginationId');
     var defaultOpts = {
         totalPages: 20
@@ -20,7 +24,7 @@
                     		$("#postdiv").html("");
                     		$.each(data.content, function (index, value) {
                     			var role = $("#roleId").text();
-                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenefit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\',\''+value.buInvest+'\',\''+value.buIncome+'\',\''+value.itype+'\')"><i class="icon-user"></i>Click for More...</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B" value="'+value.status+'"><option value="initial">Initial</option><option value="approve">Approve</option><option value="assign">Assign</option><option value="review">review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-4"><input type="button" class="btn btn-success form-control" value="Update" onclick="rateIdea(\''+value.profile.capId+'\',\''+value.rating+'\',\''+value.status+'\')"></div><div class="col-md-2" style="padding-top:20px"><a href="'+baseurl+'/files/'+value.documentName+'"><i class="fa fa-download fa-2x" aria-hidden="true"></i></a></div></div></div></div></div>');
+                        		$("#postdiv").append('<div class="blog-post"><div class="post-content"><h3 class="post-title"><a href="#">'+value.profile.capId+'<br>'+value.profile.capName+'</a></h3><div class="meta"><span class="meta-part"><a href="#" onclick="openDetails(\''+value.id+'\',\''+value.problem+'\',\''+value.industry+'\',\''+value.areaOfFunc+'\',\''+value.technology+'\',\''+value.solnTitle+'\',\''+value.solnDesc+'\',\''+value.buBenefit+'\',\''+value.status+'\',\''+value.rating+'\',\''+value.profile.capName+'\',\''+value.profile.capId+'\',\''+value.profile.capEmail+'\',\''+value.profile.phone+'\',\''+value.profile.buService+'\',\''+value.profile.project+'\',\''+value.profile.location+'\',\''+value.buInvest+'\',\''+value.buIncome+'\',\''+value.itype+'\')"><i class="icon-user"></i>Click for More...</a></span><span class="meta-part"><a href="#"><i class="icon-calendar"></i>'+moment(value.createdAt,"x").format("MMMM Do YYYY, h:mm:ss a")+'</a></span><span class="meta-part"><a href="#"><i class="icon-event"></i> Hackathon</a></span><span class="meta-part"><a href="#"><i class="icon-bubbles"></i> '+value.profile.capName+'</a></span></div><p>'+value.solnDesc+'.</p><div class="row"><div class="rateyo col-md-3 form-control" id="'+value.profile.capId+'S"></div><div class="col-md-2"><input class="form-control" id="'+value.profile.capId+'R" type="text" readonly="true"></div><div class="col-md-7"><div class="col-md-6"><select class="form-control" id="'+value.profile.capId+'B" value="'+value.status+'"><option value="initial">Initial</option><option value="approve">Approve</option><option value="assign">Assign</option><option value="review">review</option><option value="publish">Publish</option><option value="reject">Reject</option><option value="onhold">On-Hold</option></select></div><div class="col-md-4"><input type="button" class="btn btn-success form-control" value="Update" style="color:white	" onclick="rateIdea(\''+value.profile.capId+'\',\''+value.rating+'\',\''+value.status+'\')"></div><div class="col-md-2" style="padding-top:20px"><a href="'+baseurl+'/files/'+value.documentName+'"><i class="fa fa-download fa-2x" aria-hidden="true"></i></a></div></div></div></div></div>');
                         		if(role.indexOf("ROLE_ADMIN") === -1){
                         			$("#"+value.profile.capId+"B").attr('disabled',true);
                         		}
@@ -99,29 +103,26 @@
     	document.getElementById("setbuservice").innerHTML = data14;
     	document.getElementById("setproject").innerHTML = data15;
     	document.getElementById("setlocation").innerHTML = data16;
-    	document.getElementById("setItype").innerHTML = data19;
+    	$("#setItype").html(data19);
+    	$("#CmtsDiv").empty();
+    	$('#ideaVcModal').modal('show'); 
 
-    	
-    	document.getElementById("detailsNav").style.width = "100%";
-    	document.getElementById("detailsNav").style.display = "block";
-    	
-    	document.getElementById("headerdiv").style.display = "none";
-    	document.getElementById("postdiv").style.display = "none";
-    	document.getElementById("paginationDivID").style.display = "none";
-    	
     }
     
     function getComentHistory(){
  		var id = document.getElementById("hidideaid").value;
-     	var appstr = "<table><tr><td>";
+     	var appstr = "<table>";
      	$.ajax({url: baseurl+"/iComments/"+id,
          	success: function (data) {
+         	if(data.length !=0){
          		for(var i=0;i<data.length;i++){
-         			appstr += '<table class="cmtClass"><tr><td>'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr></table>';
+         			appstr += '<tr><td>'+data[i].comment +'</td></tr><tr><td>(&nbsp;by : &nbsp;'+data[i].commentedBy+'&nbsp;)</td></tr>';
          		}
-         		appstr+="</tr></td></table>";
-         		document.getElementById("viewCmtHist").innerHTML = appstr;
-         		
+         		appstr+="</table>";
+         		$("#CmtsDiv").html(appstr);
+         	}else{
+         		$("#CmtsDiv").html("No comments history found.Be the first to comment");
+         	}
          	},error: function (e) {
              	alert("Error in Comment History   "+e.error);
              }

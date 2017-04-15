@@ -227,167 +227,7 @@
 						th:hidden="true">
 						<input type="submit" value="Sign Out" />
 					</form>
-					<div id="detailsNav" class="overlay"
-						style=" display: none; overflow: scroll">
-						
-				<h1  align="center" data-wow-delay="300ms" style="color: white;background-color: black;height: 15%;">
-					View Idea Details
-				<a href="javascript:void(0)" class="closebtn"
-							onclick="closeDetails()" style="position: absolute;">&times;</a>
-					</h1>
-						
-						
-							
-						<div style="margin-left: 3%; margin-top: 3%; float: left">
-							<table>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">ID :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setideaid"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Idea Type :</td>
-									<td style="width: 65%;" align="left"><div id="setItype"></div></td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Problem :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setprob"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Industry :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setindustry"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Area Of Function :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setareaoffunc"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Technology :</td>
-									<td style="width: 65%;" align="left">
-										<div id="settech"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Solution Title :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setsoltitle"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Solution Description
-										:</td>
-									<td style="width: 65%;" align="left">
-										<div id="setsoldesc"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Benifit :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbubenift"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Investment :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuinvest"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Income :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuincome"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Status :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setstatus"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Rating :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setrating"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Name :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapname"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Id :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapid"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Cap Email :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setcapmail"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Phone :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setphone"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">BU Service :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setbuservice"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Project :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setproject"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Location :</td>
-									<td style="width: 65%;" align="left">
-										<div id="setlocation"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">Comment History :</td>
-									<td style="width: 65%;" align="left">
-										<div style="color: blue;" onclick="getComentHistory()">View</div>
-										<div id="viewCmtHist"></div>
-									</td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">*&nbsp;Comment :</td>
-									<td style="width: 65%;" align="left"><textarea
-											id="icomment" rows="5" cols="100"></textarea></td>
-								</tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left">*&nbsp;Mail Id :</td>
-									<td style="width: 65%;" align="left"><input id="cmtrMail"
-										name="cmtrMail" size="25" maxlength="20">&nbsp;@capgemini.com</td>
-								</tr>
-								<tr><td>&nbsp;</td></tr>
-								<tr style="width: 100%">
-									<td style="width: 35%;" align="left"></td>
-									<td style="width: 65%;" align="left">
-									 <input type="button" onclick="commentIdea()" class="btn btn-primary form-control" value="Please submit your comment here" > 
-										
-										</td>
-								</tr>
-							</table>
-							<input type="hidden" id="hidideaid" name="hidideaid" />
-						</div>
-					</div>
+					
 					<!-- Start Pagination -->
 					<span sec:authentication="principal.authorities" id="roleId" hidden="true">[ROLE_USER, ROLE_ADMIN]</span>
 					<div id="paginationDivID">
@@ -527,6 +367,131 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
+	
+	<!-- idea view modal start-->
+		<div class="modal fade" id="ideaVcModal" role="dialog" hidden="true" data-backdrop="static" data-keyboard="false">
+		    <div class="modal-dialog modal-lg">
+		      <div class="modal-content">
+		        <div class="modal-header" style="background-color:#e91e63;">
+		          <button type="button" class="close" data-dismiss="modal" >&times;</button>
+		          <h4 class="modal-title" style="color:white;">View and Comment Idea</h4>
+		        </div>
+		        <div class="modal-body">
+		          <div class="table-responsive">          
+		              <table class="table">
+		                <tbody><tr>
+		                  <td>ID :</td>
+		                  <td id="setideaid"></td>
+		                </tr>
+		                <tr>
+		                  <td>Idea Type :</td>
+		                  <td id="setItype"></td>
+		                </tr>
+		                <tr>
+		                  <td>Problem :</td>
+		                  <td id="setprob"></td>
+		                </tr>
+		                <tr>
+		                  <td>Industry :</td>
+		                  <td id="setindustry"></td>
+		                </tr>
+		                <tr>
+		                  <td>Area Of Function :</td>
+		                  <td id="setareaoffunc"></td>
+		                </tr>
+		                <tr>
+		                  <td>Technology :</td>
+		                  <td id="settech"></td>
+		                </tr>
+		                <tr>
+		                  <td>Solution Title :</td>
+		                  <td id="setsoltitle"></td>
+		                </tr>
+		                <tr>
+		                  <td>Solution Description:</td>
+		                  <td id="setsoldesc"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Benifit :</td>
+		                  <td id="setbubenift"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Investment :</td>
+		                  <td id="setbuinvest"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Income :</td>
+		                  <td id="setbuincome"></td>
+		                </tr>
+		                <tr>
+		                  <td>Status :</td>
+		                  <td id="setstatus"></td>
+		                </tr>
+		                <tr>
+		                  <td>Rating :</td>
+		                  <td id="setrating"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Name :</td>
+		                  <td id="setcapname"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Id :</td>
+		                  <td id="setcapid"></td>
+		                </tr>
+		                <tr>
+		                  <td>Cap Email :</td>
+		                  <td id="setcapmail"></td>
+		                </tr>
+		                <tr>
+		                  <td>Phone :</td>
+		                  <td id="setphone"></td>
+		                </tr>
+		                <tr>
+		                  <td>BU Service :</td>
+		                  <td id="setbuservice"></td>
+		                </tr>
+		                <tr>
+		                  <td>Project :</td>
+		                  <td id="setproject"></td>
+		                </tr>
+		                <tr>
+		                  <td>Location :</td>
+		                  <td id="setlocation"></td>
+		                </tr>
+		                <tr>
+		                  <td>Comment History :</td>
+		                  <td>
+		                    <div style="color: blue;" id="getComents">View</div>
+		                    <div id="CmtsDiv"></div>
+		                  </td>
+		                </tr>
+		                <tr>
+		                  <td>Comment :</td>
+		                  <td><textarea id="icomment" rows="5" cols="70"></textarea></td>
+		                </tr>
+		                <tr>
+		                  <td>Mail Id :</td>
+		                  <td><input id="cmtrMail" name="cmtrMail" size="25" maxlength="20">&nbsp;@capgemini.com</td>
+		                </tr>
+		                <tr>
+		                  <td></td>
+		                  <td>
+		                  <button onclick="commentIdea()" id="comment-submit" class="btn btn-common">Submit Comment <i class="fa fa-comments-o" aria-hidden="true"></i></button>
+		                    </td>
+		                </tr>
+		              </tbody>
+		            </table>
+		      </div>
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-common" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		<input type="hidden" id="hidideaid" name="hidideaid" />
+		<!-- idea view modal end -->
 
 	<!-- Footer Section Start -->
 	<footer class="section">
