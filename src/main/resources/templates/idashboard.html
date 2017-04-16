@@ -478,8 +478,15 @@
   <div class="tab-content">
     <div id="single" class="tab-pane fade in active">
      <br>
-  <div class="table-responsive">          
-  		<table class="table" id="tab_logic">
+     <div class="container-fluid">
+		  <div class="row">
+		  	<div class="col-sm-6">Team name: <input type="text" id='steamName' required maxlength="35" class="form-control" placeholder = "Team name"/></div>
+		    <div class="col-sm-6">Time required: <input type="number" id='stimeline' class="form-control" required placeholder="months" min = "1" max = "12"/></div>
+		  </div>
+	</div>
+	<br>		
+  		<div class="table-responsive">          
+  		<table class="table">
 						<thead style="background-color: skyblue;">
 							<tr >
 								<th class="text-center">
@@ -509,32 +516,38 @@
 								<div class="form-control" style="background-color:#e91e63;color:#ffffff">1</div>
 								</td>
 								<td>
-								<input type="text" name='nameIndi' required placeholder='Name' class="form-control" />
+								<input type="text" id='nameIndi' required placeholder='Name' class="form-control" />
 								</td>
 								<td>
-								<input type="text" name='mailIndi' required placeholder='Mail' class="form-control"/>
+								<input type="text" id='mailIndi' required placeholder='Mail' class="form-control"/>
 								</td>
 								<td>
-								<input type="text" name='projectIndi' required placeholder='Project/Account' class="form-control"/>
+								<input type="text" id='projectIndi' required placeholder='Project/Account' class="form-control"/>
 								</td>
 								<td>
-								<input type="text" name='techIndi' required placeholder='Technologies' class="form-control"/>
+								<input type="text" id='techIndi' required placeholder='Technologies' class="form-control"/>
 								</td>
 								<td>
-								<input type="text" name='roleIndi' required placeholder='Role' class="form-control"/>
+								<input type="text" id='roleIndi' required placeholder='Role' class="form-control"/>
 								</td>
 							</tr>
 						</tbody>
-					
 					</table>
 					</div>
-
+				<button id="single-contribute-submit" class="btn btn-common">Contribute <i class="fa fa-user" aria-hidden="true"></i></button>		
     </div>
     <div id="team" class="tab-pane fade">
+    <br>
+    <div class="container-fluid">
+		  <div class="row">
+		  	<div class="col-sm-6">Team name: <input type="text" id='tTeamName' required maxlength="35" class="form-control" placeholder = "Team name"/></div>
+		    <div class="col-sm-6">Time required: <input type="number" id='tTimeLine' class="form-control" required placeholder="months" min = "1" max = "12"/></div>
+		  </div>
+	</div>
+	<br>
       <div class="table-responsive">          
   		<table class="table" id="tab_logic">
-      <!-- <table class="table-hover" id="tab_logic"> -->
-            <thead>
+            <thead style="background-color: skyblue;">
               <tr>
                 <th class="text-center">
                   #
@@ -569,19 +582,19 @@
                 <div class="form-control" style="background-color:#e91e63;color:#ffffff">1</div>
                 </td>
                 <td>
-                <input type="text" name="name0" required="" placeholder="Name" class="form-control">
+                <input type="text" id="name0" required placeholder="Name" class="form-control">
                 </td>
                 <td>
-                <input type="text" name="mail0" required="" placeholder="Mail" class="form-control">
+                <input type="text" id="mail0" required placeholder="Mail" class="form-control">
                 </td>
                 <td>
-                <input type="text" name="project0" required="" placeholder="Project/Account" class="form-control">
+                <input type="text" id="project0" required placeholder="Project/Account" class="form-control">
                 </td>
                 <td>
-                <input type="text" name="tech0" required="" placeholder="Technologies" class="form-control">
+                <input type="text" id="tech0" required placeholder="Technologies" class="form-control">
                 </td>
                 <td>
-                <input type="text" name="role0" required="" placeholder="Role" class="form-control">
+                <input type="text" id="role0" required placeholder="Role" class="form-control">
                 </td>
                 <td style="padding-top: 24px;">
                 <button type="button" id="add_row"  class=" btn-success btn-sm " >+</button>
@@ -590,11 +603,31 @@
                 <button type="button" id="delete_row" class="btn-danger btn-sm">-</button>
                 </td>
               </tr>
-                        <tr id="addr1"></tr>
+              <tr id="addr1">
+                <td>
+                <div class="form-control" style="background-color:#e91e63;color:#ffffff">2</div>
+                </td>
+                <td>
+                <input type="text" id="name1" required placeholder="Name" class="form-control">
+                </td>
+                <td>
+                <input type="text" id="mail1" required placeholder="Mail" class="form-control">
+                </td>
+                <td>
+                <input type="text" id="project1" required placeholder="Project/Account" class="form-control">
+                </td>
+                <td>
+                <input type="text" id="tech1" required placeholder="Technologies" class="form-control">
+                </td>
+                <td>
+                <input type="text" id="role1" required placeholder="Role" class="form-control">
+                </td>
+              </tr>
+                        <tr id="addr2"></tr>
             </tbody>
-          
           </table>
           </div>
+          <button id="team-contribute-submit" class="btn btn-common">Contribute <i class="fa fa-users" aria-hidden="true"></i></button>
     </div>
   </div>
           
