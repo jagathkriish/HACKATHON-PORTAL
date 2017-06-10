@@ -1,0 +1,13 @@
+add spring.data.rest.basePath=/api in application properties..
+
+call te data from /api/
+
+go and see ideaRestController
+
+http://localhost:8078/api/ideas/search/findByEmail?email=jagath@123.com
+
+you can find last two methods.
+
+based on that you can configure all repositories interfaces.
+
+to call others replace ideas with profiles(for pofile,  add s to model name.)
